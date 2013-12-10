@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://pt.rupeal.invoicexpress.layouts"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:scrollbars="vertical"
+    android:background="@color/background"
+>
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical"
+	>  
+
+	    <TextView
+	        android:id="@+id/item_details_title" 
+	        android:layout_width="match_parent"
+	    	android:layout_height="68dp"
+	    	android:textColor="@color/green_normal"
+	    	android:textSize="16sp"
+	    	android:background="@color/green_shadow"
+	    	android:paddingLeft="16dp"
+	    	android:gravity="center_vertical"
+		/>
+	    
+	    <View 
+	    	android:layout_width="match_parent"
+	    	android:layout_height="2dp"
+	    	android:background="@color/green_normal"    
+		/>
+	    
+	    <pt.rupeal.invoicexpress.layouts.SubTitleLayout
+	        android:id="@+id/item_details_name_subtitle"
+			android:layout_width="match_parent"
+	    	android:layout_height="wrap_content" 
+	    />
+	    
+	    <pt.rupeal.invoicexpress.layouts.SubTitleLayout
+	        android:id="@+id/item_details_description_subtitle"
+			android:layout_width="match_parent"
+	    	android:layout_height="wrap_content" 
+	    />	
+	    
+	    <pt.rupeal.invoicexpress.layouts.SubTitleLayout
+	        android:id="@+id/item_details_values_subtitle"
+			android:layout_width="match_parent"
+	    	android:layout_height="wrap_content" 
+	    />		    	    	    
+		    
+	    
+	</LinearLayout>
+    
+</ScrollView>

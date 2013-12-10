@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item value="257" key="DIALOG_WIDTH"/>
+		<item value="446" key="DIALOG_Y_ORIGIN"/>
+		<item value="380" key="DIALOG_HEIGHT"/>
+		<item value="476" key="DIALOG_X_ORIGIN"/>
+		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item value="true" key="wrap"/>
+		<item value="false" key="isRegEx"/>
+		<item value="false" key="casesensitive"/>
+		<item value="false" key="incremental"/>
+		<item value="false" key="wholeword"/>
+		<item value="dashboard_quarterly_first_invoicing" key="selection"/>
+		<list key="findhistory">
+			<item value="dashboard_quarterly_first_invoicing"/>
+			<item value="dashboard_quarterly_table_layout"/>
+			<item value="drawline"/>
+			<item value="exampl"/>
+			<item value="example"/>
+			<item value="1.0"/>
+			<item value="ACBMI"/>
+			<item value="palavra-ch"/>
+		</list>
+		<list key="replacehistory">
+			<item value="&quot;"/>
+			<item value=""/>
+			<item value="ContactModel"/>
+			<item value="params[3]"/>
+			<item value="param[3]"/>
+			<item value="android:layout_weight=&quot;.28&quot;"/>
+			<item value="android:layout_weight=&quot;.06&quot;"/>
+			<item value="android:layout_weight=&quot;.1&quot;"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.GotoLineAction$GotoLineDialog_dialogBounds">
+		<item value="334" key="DIALOG_Y_ORIGIN"/>
+		<item value="531" key="DIALOG_X_ORIGIN"/>
+	</section>
+</section>

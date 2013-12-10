@@ -1,0 +1,103 @@
+package pt.rupeal.invoicexpress.fragments;
+
+import pt.rupeal.invoicexpress.R;
+import pt.rupeal.invoicexpress.activities.GetContactDetailsActivity;
+import pt.rupeal.invoicexpress.adapters.ContactListRowAdapter;
+import pt.rupeal.invoicexpress.dtos.ContactDTO;
+import android.app.ListFragment;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+public class ContactsFragment extends ListFragment {
+	
+	@Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    	
+        ContactListRowAdapter adapter = new ContactListRowAdapter(inflater.getContext(), getContacts());
+    	setListAdapter(adapter);
+    	
+    	getListView().setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+
+				Intent intent = new Intent(getActivity(), GetContactDetailsActivity.class);
+				startActivity(intent);
+				
+			}
+		});
+    	
+    	// Inflate the layout for this fragment
+    	return inflater.inflate(R.layout.contacts_list_fragment, container, false);
+    }
+	
+	private ContactDTO[] getContacts(){
+		ContactDTO[] contacts = new ContactDTO[12];
+		
+		ContactDTO contact = new ContactDTO();
+		contact.setName("Adriana Lima");
+		contact.setFirst(true);
+		contacts[0] = contact;
+		
+		contact = new ContactDTO();
+		contact.setName("Aline Morais");
+		contact.setFirst(false);
+		contacts[1] = contact;
+		
+		contact = new ContactDTO();
+		contact.setName("Bento");
+		contact.setFirst(true);
+		contacts[2] = contact;
+		
+		contact = new ContactDTO();
+		contact.setName("Bernardo Daniel");
+		contact.setFirst(false);
+		contacts[3] = contact;
+		
+		contact = new ContactDTO();
+		contact.setName("Bruno Santiago Machado");
+		contact.setFirst(false);
+		contacts[4] = contact;
+
+		contact = new ContactDTO();
+		contact.setName("Bruno Ricardo");
+		contact.setFirst(false);
+		contacts[5] = contact;
+
+		contact = new ContactDTO();
+		contact.setName("Brutus Silva");
+		contact.setFirst(false);
+		contacts[6] = contact;
+		
+		contact = new ContactDTO();
+		contact.setName("Duarte Fernandes");
+		contact.setFirst(true);
+		contacts[7] = contact;
+
+		contact = new ContactDTO();
+		contact.setName("Duarte Neves");
+		contact.setFirst(false);
+		contacts[8] = contact;
+
+		contact = new ContactDTO();
+		contact.setName("João Macedo");
+		contact.setFirst(true);
+		contacts[9] = contact;
+		
+		contact = new ContactDTO();
+		contact.setName("João Machado");
+		contact.setFirst(false);
+		contacts[10] = contact;
+		
+		contact = new ContactDTO();
+		contact.setName("Rui Pedro Alves");
+		contact.setFirst(true);
+		contacts[11] = contact;
+		
+		return contacts;
+	}
+
+}

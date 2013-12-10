@@ -1,0 +1,61 @@
+package pt.rupeal.invoicexpress.fragments;
+
+import pt.rupeal.invoicexpress.R;
+import pt.rupeal.invoicexpress.adapters.ContactListRowAdapter;
+import pt.rupeal.invoicexpress.dtos.ContactDTO;
+import android.app.ListFragment;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+// import android.widget.LinearLayout;
+
+public class ContactsFragment extends ListFragment {
+	
+	@Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    	
+        Con[] people = new String[] {
+    			"Adriana Lima",
+    			"Aline Morais",
+    			"Bento",
+    			"Bernardo Daniel",
+    	        "Bruno Santiago Machado",
+    	        "Bruno Ricardo",
+    	        "Brutus Silva",
+    	        "Duarte Fernandes",
+    	        "Duarte Neves",
+    	        "Francisco Costa",
+    	        "João Macedo",
+    	        "João Marques",
+    	        "João Melo",
+    	        "Marta Fazao",
+    	        "Paulo Cancela",
+    	        "Pedro Andrez",
+    	        "Ricardo Seabra",
+    	        "Rui Pedro Alves"
+    	};
+    	
+        ContactListRowAdapter adapter = new ContactListRowAdapter(inflater.getContext(), people);
+    	setListAdapter(adapter);
+    	
+    	// Inflate the layout for this fragment
+    	return inflater.inflate(R.layout.contacts_list_fragment, container, false);
+    }
+	
+	private ContactDTO[] getContacts(){
+		ContactDTO[] contacts = new ContactDTO[20];
+		
+		ContactDTO contact = new ContactDTO();
+		contact.setName("Adriana Lima");
+		contact.setFirst(boolean);
+		contacts[0] = contact;
+		
+		contact = new ContactDTO();
+		contact.setName(name);
+		contact.setFirst(isFirst);
+		
+		return contacts;
+	}
+
+}

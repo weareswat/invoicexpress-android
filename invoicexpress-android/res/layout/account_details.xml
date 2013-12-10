@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:scrollbars="vertical"
+    android:background="@color/background"
+    android:overScrollMode="never"
+>
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical"
+	>    
+
+	    <RelativeLayout 
+			android:layout_width="match_parent"
+	    	android:layout_height="wrap_content"
+	    	android:background="@color/green_shadow"
+	    >
+		    <!-- TextView name -->
+		    <TextView
+		        android:id="@+id/account_details_title_name" 
+		        android:layout_width="match_parent"
+		  		android:layout_height="wrap_content"     	        
+		    	android:layout_marginLeft="24dp"
+		    	android:layout_marginRight="24dp"
+				android:paddingTop="24dp"
+		    	android:textColor="@color/green_normal"
+		    	android:textSize="16sp"
+			/>
+		    
+		    <TextView
+		        android:id="@+id/account_details_title_entity" 
+		        android:layout_width="match_parent"
+		  		android:layout_height="wrap_content"
+		  		android:layout_marginLeft="24dp"
+		  		android:layout_marginRight="24dp"     	        
+	    		android:paddingBottom="14dp"
+		    	android:layout_below="@id/account_details_title_name"
+		    	android:textColor="@color/green_normal_2"
+		    	android:textSize="11sp"
+			/>
+	        
+	    </RelativeLayout>
+	    
+	    <View 
+	    	android:layout_width="match_parent"
+	    	android:layout_height="2dp"
+	    	android:background="@color/green_normal"    
+		/>
+	    
+	    <pt.rupeal.invoicexpress.layouts.SubTitleLayout
+	        android:id="@+id/account_details_type_subtitle"
+			android:layout_width="match_parent"
+	    	android:layout_height="wrap_content"
+	    	android:layout_marginTop="56dp"
+	    />	    
+	    
+		<TextView
+		    android:id="@+id/account_details_type" 
+			android:layout_width="match_parent"
+	    	android:layout_height="wrap_content"
+			android:layout_marginTop="8dp"
+			android:layout_marginLeft="24dp"
+	  		android:textColor="@color/details_text"
+	  		android:textSize="18sp"
+		/>
+		
+	    <pt.rupeal.invoicexpress.layouts.SubTitleLayout
+	        android:id="@+id/account_details_general_subtitle"
+			android:layout_width="match_parent"
+	    	android:layout_height="wrap_content"
+	    	android:layout_marginTop="46dp"
+	    />	    
+	    	    	    
+	    <LinearLayout 
+	        android:id="@+id/account_details_address_layout" 
+			android:layout_width="match_parent"
+	    	android:layout_height="wrap_content"
+			android:orientation="vertical" 
+			android:layout_marginBottom="8dp"   	
+	    >
+	        
+			<TextView
+			    android:id="@+id/account_details_address" 
+				android:layout_width="match_parent"
+		    	android:layout_height="wrap_content"
+				android:layout_marginTop="8dp"
+				android:layout_marginLeft="24dp"
+				android:layout_marginRight="24dp"				
+		  		android:textColor="@color/details_text"
+		  		android:textSize="18sp"
+			/>
+			
+			<TextView 
+				android:layout_width="match_parent"
+		    	android:layout_height="wrap_content"
+		  		android:layout_marginLeft="24dp"
+		    	android:text="@string/details_address" 
+		    	android:textSize="11sp"
+			/>
+
+	    </LinearLayout>
+	    
+	    <View 
+	        android:id="@+id/account_details_address_line_seperator"
+	    	android:layout_width="match_parent"
+	    	android:layout_height="1dp"
+	  		android:layout_marginLeft="18dp"
+	  		android:layout_marginRight="18dp"   
+	    	android:background="@color/line_seperator"
+		/>    
+	    
+		<pt.rupeal.invoicexpress.layouts.ValueLabelImageLayout 
+		    android:id="@+id/account_details_phone"
+			android:layout_width="match_parent"
+ 			android:layout_height="60dp"   		    
+		/>	    
+		
+	    <View 
+	        android:id="@+id/account_details_phone_line_seperator"
+	    	android:layout_width="match_parent"
+	    	android:layout_height="1dp"
+	  		android:layout_marginLeft="18dp"
+	  		android:layout_marginRight="18dp"   
+	    	android:background="@color/line_seperator"
+		/>
+	    
+		<pt.rupeal.invoicexpress.layouts.ValueLabelImageLayout 
+		    android:id="@+id/account_details_fax"
+			android:layout_width="match_parent"
+ 			android:layout_height="60dp"   		    
+		/>	    
+		
+	    <View 
+	        android:id="@+id/account_details_fax_line_seperator"
+	    	android:layout_width="match_parent"
+	    	android:layout_height="1dp"
+	  		android:layout_marginLeft="18dp"
+	  		android:layout_marginRight="18dp"   
+	    	android:background="@color/line_seperator"
+		/>
+
+	    <pt.rupeal.invoicexpress.layouts.ValueLabelImageLayout 
+		    android:id="@+id/account_details_email"
+			android:layout_width="match_parent"
+ 			android:layout_height="60dp"   		    
+		/>	
+	
+	    <View
+	        android:id="@+id/account_details_email_line_seperator" 
+	    	android:layout_width="match_parent"
+	    	android:layout_height="1dp"
+	  		android:layout_marginLeft="18dp"
+	  		android:layout_marginRight="18dp"   
+	    	android:background="@color/line_seperator"
+		/>
+	    
+	    <pt.rupeal.invoicexpress.layouts.SubTitleLayout
+	        android:id="@+id/account_details_currency_subtitle"
+			android:layout_width="match_parent"
+	    	android:layout_height="wrap_content"
+	    	android:layout_marginTop="36dp"
+	    />
+	    
+		<TextView
+		    android:id="@+id/account_details_currency" 
+			android:layout_width="match_parent"
+	    	android:layout_height="wrap_content"
+	  		android:layout_marginLeft="24dp"
+	  		android:layout_marginRight="24dp"   
+	  		android:layout_marginBottom="42dp"    
+	    	android:textSize="18sp"
+		/>	
+	    	
+	</LinearLayout>
+</ScrollView> 

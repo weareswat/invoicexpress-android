@@ -1,0 +1,18 @@
+package pt.rupeal.invoicexpress.layouts;
+
+import android.content.Context;
+import android.view.ViewGroup;
+
+public class SubTitleView extends ViewGroup {
+
+	public SubTitleView(Context context) {
+		super(context);
+	}
+
+	@Override
+	protected void onLayout(boolean changed, int l, int t, int r, int b) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+}

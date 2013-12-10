@@ -1,0 +1,90 @@
+package pt.rupeal.invoicexpress.adapters;
+
+import java.util.HashMap;
+
+import pt.rupeal.invoicexpress.R;
+import pt.rupeal.invoicexpress.dtos.ContactDTO;
+import pt.rupeal.invoicexpress.widgets.ContactsLetterTextView;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewParent;
+import android.widget.BaseAdapter;
+import android.widget.LinearLayout;
+import android.widget.LinearLayout.LayoutParams;
+import android.widget.ListView;
+import android.widget.TextView;
+
+public class ContactListRowAdapter extends BaseAdapter {
+
+	private Context context;
+	
+	private ContactDTO[] contacts;
+	
+	public ContactListRowAdapter(Context context, ContactDTO[] contacts){
+		this.context = context;
+		this.contacts = contacts;
+	}
+	
+	@Override
+	public int getCount() {
+		return contacts.length;
+	}
+
+	@Override
+	public Object getItem(int position) {
+		return contacts[position];
+	}
+
+	@Override
+	public long getItemId(int position) {
+		return position;
+	}
+	
+	@Override
+	public View getView(int position, View convertView, ViewGroup parent) {
+		LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+		if(convertView == null) {
+			convertView = inflater.inflate(R.layout.contacts_list_row_fragment, parent, false);
+		}
+
+		ContactDTO contactDTO = contacts[position];
+		String name = contactDTO.getName();
+		boolean isFirst = contactDTO.isFirst();
+	
+		if(isFirst){
+			
+			LinearLayout letterLayout = (LinearLayout) convertView.findViewById(R.id.contact_list_letter);
+			
+			View emptyView = new View(context);
+			emptyView.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, 60));
+			letterLayout.addView(emptyView);
+			
+			ContactsLetterTextView letterTextView = new ContactsLetterTextView(context);
+			letterTextView.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT));
+			letterTextView.setBackgroundColor(context.getResources().getColor(R.color.green_shadow));
+			letterTextView.setTextColor(context.getResources().getColor(R.color.green_normal));
+			
+			String contactLetter = String.valueOf(name.charAt(0));
+			letterTextView.setText(contactLetter);
+			
+			letterTextView.setTextSize(12);
+			letterTextView.setPadding(12, 8, 0, 8);
+			letterLayout.addView(letterTextView);
+			
+			View lineSeperator = new View(context);
+			lineSeperator.setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, 2));
+			lineSeperator.setBackgroundColor(context.getResources().getColor(R.color.green_normal));
+			letterLayout.addView(lineSeperator);
+			
+		}
+		
+		TextView contactTitleTextView = (TextView) convertView.findViewById(R.id.contact_name);
+		contactTitleTextView.setText(name);
+		
+		return convertView;
+	}
+
+}

@@ -1,0 +1,125 @@
+package pt.rupeal.invoicexpress.widgets;
+
+import pt.rupeal.invoicexpress.R;
+import pt.rupeal.invoicexpress.activities.GetContactDetailsActivity;
+import pt.rupeal.invoicexpress.activities.GetItemDetailsActivity;
+import pt.rupeal.invoicexpress.fragments.ContactDetailsFragment;
+import pt.rupeal.invoicexpress.fragments.ContactsFragment;
+import pt.rupeal.invoicexpress.fragments.DashBoardFragment;
+import pt.rupeal.invoicexpress.fragments.DocumentsFragment;
+import pt.rupeal.invoicexpress.fragments.ItemDetailsFragment;
+import android.app.ActionBar.Tab;
+import android.app.Activity;
+import android.app.Fragment;
+import android.app.FragmentTransaction;
+import android.content.Intent;
+
+public class TabListener<T extends Fragment> implements android.app.ActionBar.TabListener {
+    
+	private Fragment mFragment;
+    private final Activity mActivity;
+    private final String mTag;
+    private final Class<T> mClass;
+    
+    private boolean firstTime = true;
+
+    /** Constructor used each time a new tab is created.
+      * @param activity  The host Activity, used to instantiate the fragment
+      * @param tag  The identifier tag for the fragment
+      * @param clz  The fragment's Class, used to instantiate the fragment
+      */
+    public TabListener(Activity activity, String tag, Class<T> clz) {
+        mActivity = activity;
+        mTag = tag;
+        mClass = clz;
+    }
+
+    /* The following are each of the ActionBar.TabListener callbacks */
+
+    public void onTabSelected(Tab tab, FragmentTransaction ft) {
+        // Check if the fragment is already initialized
+        if (mFragment == null) {
+            // If not, instantiate and add it to the activity
+            mFragment = Fragment.instantiate(mActivity, mClass.getName());
+            ft.add(android.R.id.content, mFragment, mTag);
+        } else {
+            // If it exists, simply attach it in order to show it
+            // ft.attach(mFragment);
+        	// performance problem ???
+        	ft.show(mFragment);
+        }
+        
+        updateToSelectedTabIcon(tab);
+    }
+
+    public void onTabUnselected(Tab tab, FragmentTransaction ft) {
+        if (mFragment != null) {
+            // Detach the fragment, because another one is being attached
+            // ft.detach(mFragment);
+        	// performance problem ???
+        	ft.hide(mFragment);
+        	
+        }
+        
+        updateToUnSelectedTabIcon(tab);
+    }
+
+    public void onTabReselected(Tab tab, FragmentTransaction ft) {
+        // User selected the already selected tab. Usually do nothing.
+    }
+    
+    public static final String TAB_POSITION = "tab_position";
+    
+    private void updateToSelectedTabIcon(Tab tab){
+    	
+    	if(mActivity instanceof GetContactDetailsActivity 
+    			|| mActivity instanceof GetItemDetailsActivity){
+    		
+    		if(mClass.getName().equals(ContactDetailsFragment.class.getName())){
+        		tab.setIcon(R.drawable.icon_3_selected);
+        		// return for the first time
+        		return;
+        	}
+    		
+    		Intent intent = new Intent();
+    		intent.putExtra(TAB_POSITION, tab.getPosition());
+    		
+    		mActivity.setResult(0, intent);
+    		mActivity.finish();
+    	}
+    	
+    	if(mClass.getName().equals(DashBoardFragment.class.getName())){
+    		tab.setIcon(R.drawable.icon_1_selected);
+    	} else if(mClass.getName().equals(DocumentsFragment.class.getName())){
+    		tab.setIcon(R.drawable.icon_2_selected);
+    	} else if(mClass.getName().equals(ItemDetailsFragment.class.getName())){
+    		tab.setIcon(R.drawable.icon_2_selected);
+    		// return for the first time
+    		return;    		
+    	} else if(mClass.getName().equals(ContactsFragment.class.getName())){
+    		tab.setIcon(R.drawable.icon_3_selected);
+    	} else if(mClass.getName().equals(DashBoardFragment.class.getName())){
+    		tab.setIcon(R.drawable.icon_4_selected);
+    	}
+    	
+    	
+    }
+    
+    
+    private void updateToUnSelectedTabIcon(Tab tab){
+    	if(mClass.getName().equals(DashBoardFragment.class.getName())){
+    		tab.setIcon(R.drawable.icon_1);
+    	} else if(mClass.getName().equals(DocumentsFragment.class.getName())){
+    		tab.setIcon(R.drawable.icon_2);
+    	} else if(mClass.getName().equals(ItemDetailsFragment.class.getName())){
+    		tab.setIcon(R.drawable.icon_2);
+    	} else if(mClass.getName().equals(ContactsFragment.class.getName())){
+    		tab.setIcon(R.drawable.icon_3);
+    	} else if(mClass.getName().equals(ContactDetailsFragment.class.getName())){
+    		tab.setIcon(R.drawable.icon_3);
+    	} else if(mClass.getName().equals(DashBoardFragment.class.getName())){
+    		tab.setIcon(R.drawable.icon_4);
+    	}
+    }
+
+}

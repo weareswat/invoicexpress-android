@@ -1,0 +1,264 @@
+package pt.rupeal.invoicexpress;
+
+import java.util.List;
+import java.util.concurrent.ExecutionException;
+
+import android.accounts.Account;
+import android.accounts.AccountManager;
+import android.app.ActionBar;
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
+import android.app.ActionBar.Tab;
+import android.app.Activity;
+import android.content.Intent;
+import android.os.AsyncTask;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.Toast;
+import pt.rupeal.invoicexpress.activities.AuthenticationActivity;
+import pt.rupeal.invoicexpress.dtos.AccountDTO;
+import pt.rupeal.invoicexpress.enums.FragmentTagsEnum;
+import pt.rupeal.invoicexpress.fragments.ContactsFragment;
+import pt.rupeal.invoicexpress.fragments.DashBoardFragment;
+import pt.rupeal.invoicexpress.fragments.DocumentsFragment;
+import pt.rupeal.invoicexpress.fragments.MoreFragment;
+import pt.rupeal.invoicexpress.server.InvoiceXpress;
+import pt.rupeal.invoicexpress.server.AuthenticationRestHandler;
+import pt.rupeal.invoicexpress.utils.InvoiceXpressError.InvoiceXpressErrorType;
+import pt.rupeal.invoicexpress.utils.InvoiceXpressException;
+import pt.rupeal.invoicexpress.widgets.TabListener;
+
+public class MainActivity extends Activity {
+    
+	private ActionBar actionBar;
+	
+	@Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        
+        try {
+        	// account manager
+        	InvoiceXpress.getInstance().setAccountManager(AccountManager.get(this));
+
+			// temporary lines
+//			Account[] accounts = InvoiceXpress.getInstance().getAccountManager().getAccountsByType("pt.rupeal.invoicexpress");
+//			InvoiceXpress.getInstance().getAccountManager().removeAccount(accounts[0], null, null);
+			
+			// login
+			if(login()) {
+				initActionBar();
+			} else {
+				finish();
+			}
+			
+        } catch (InvoiceXpressException e) {
+        	if(e.isFatal()) {
+        		Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
+        		finish();
+        	}
+        }
+        
+	}
+	
+	private void initActionBar() {
+		
+		// setup action bar for tabs       
+		actionBar = super.getActionBar();
+		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+		actionBar.setDisplayHomeAsUpEnabled(true);
+		
+		Tab tab = actionBar.newTab()
+				.setIcon(R.drawable.icon_1)
+				.setTabListener(new TabListener<DashBoardFragment>(
+						this, FragmentTagsEnum.DASHBOARD.getValue(), DashBoardFragment.class));
+		actionBar.addTab(tab, false);
+		
+		tab = actionBar.newTab()
+				.setIcon(R.drawable.icon_2)
+				.setTabListener(new TabListener<DocumentsFragment>(
+						this, FragmentTagsEnum.DOCUMENTS.getValue(), DocumentsFragment.class));
+		actionBar.addTab(tab, true);
+		
+		tab = actionBar.newTab()
+				.setIcon(R.drawable.icon_3)
+				.setTabListener(new TabListener<ContactsFragment>(
+						this, FragmentTagsEnum.CONTACTS.getValue(), ContactsFragment.class));
+		actionBar.addTab(tab, false);
+		
+		tab = actionBar.newTab()
+				.setIcon(R.drawable.icon_4)
+				.setTabListener(new TabListener<MoreFragment>(
+						this, FragmentTagsEnum.MORE.getValue(), MoreFragment.class));
+		actionBar.addTab(tab, false);
+		
+	}
+	
+	public ActionBar getActionBar() {
+		return actionBar;
+	}
+	
+	private boolean login() throws InvoiceXpressException {
+		
+		try {
+			String accountType = InvoiceXpress.getInstance().getAccountAndroidType();
+			Account[] androidAccounts = InvoiceXpress.getInstance().getAccountManager().getAccountsByType(accountType);
+			if(androidAccounts == null || androidAccounts.length == 0) {
+				// get login activity
+				Intent intent = new Intent(this, AuthenticationActivity.class);
+				startActivity(intent);	
+				return false;
+			}
+	    	
+			if(androidAccounts.length != 1) {
+				throw new InvoiceXpressException(this, R.string.error_invalid_params, InvoiceXpressErrorType.FATAL);
+			}
+			
+			String password = InvoiceXpress.getInstance().getAccountManager().getPassword(androidAccounts[0]);
+			AsyncTask<String, Void, List<AccountDTO>> asyncTask = new AuthenticationRestHandler(this).execute(new String[] {androidAccounts[0].name, password});
+			
+			if(asyncTask.get() == null || asyncTask.get().isEmpty()) {
+				return false;
+			} 
+	            
+			Account account = new Account(androidAccounts[0].name, accountType);  
+            InvoiceXpress.getInstance().getAccountManager().addAccountExplicitly(account, password, null);
+            
+            InvoiceXpress.getInstance().getAccounts().clear();
+			InvoiceXpress.getInstance().getAccounts().addAll(asyncTask.get());
+			InvoiceXpress.getInstance().setActiveAccount(InvoiceXpress.getInstance().getAccounts().get(0));
+			
+			return true;
+			
+		} catch (InterruptedException e) {
+			Log.e(MainActivity.class.getCanonicalName(), e.getMessage());
+		} catch (ExecutionException e) {
+			Log.e(MainActivity.class.getCanonicalName(), e.getMessage());
+		}
+		
+		return false;
+	}
+	
+    /* we need a handler for when the secondary activity finishes it's work
+     * and returns control to this activity...
+     */
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent intent){
+        super.onActivityResult(requestCode, resultCode, intent);
+                
+        if(intent != null) {
+        	Bundle extras = intent.getExtras();
+        	Integer position = (Integer) extras.get(TabListener.TAB_POSITION);
+        	actionBar.setSelectedNavigationItem(position);
+        }
+    }
+    
+    @Override
+    protected void onResume() {
+    	// overridePendingTransition(android.R.anim.slide_in_left, 0);
+    	super.onResume();
+    }
+	
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        // getMenuInflater().inflate(R.menu.action_bar_main, menu);
+        // this.menu = menu;
+        return true;
+    }
+    
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+    	
+    	switch (item.getItemId()) {        
+    		case android.R.id.home:            
+    			Intent intent = new Intent(this, MainActivity.class);            
+    			intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP); 
+    			startActivity(intent);            
+    			return true;        
+    		default:            
+    			return super.onOptionsItemSelected(item);    
+    	}
+    	
+    }
+    
+    @Override
+    public void onBackPressed() {
+		Fragment fragment = InvoiceXpress.getInstance().getLastFragment();
+		removeFragment(fragment.getTag());
+    }
+    
+//    public void addFragment(Class<? extends Fragment> mClass, String nextFragmentTag) {
+//    	
+//    }
+    
+    /**
+     * Set, add and show new fragment
+     * @param mClass, Fragment class
+     * @param fragmentTag, Fragment tag (FragmentTagsEnum)
+     */
+    public void addFragment(Class<? extends Fragment> mClass, String fragmentTag, String lastFragmentTag) {
+    	// get FragmentManager and FragmentTransaction
+    	final FragmentManager fm = getFragmentManager();
+    	FragmentTransaction ft = fm.beginTransaction();
+    	
+    	// hide the previous fragment
+    	if(lastFragmentTag != null && !lastFragmentTag.isEmpty()) {
+    		Fragment fragment = fm.findFragmentByTag(lastFragmentTag);
+    		if(fragment != null) {
+    			ft.detach(fragment);
+    		}
+    	}
+    	
+    	Fragment fragment = fm.findFragmentByTag(fragmentTag);
+    	if(fragment != null) {
+    		ft.attach(fragment);
+    	} else {
+    		fragment = Fragment.instantiate(this, mClass.getName());
+    		// add and commit fragment to show
+    		ft.add(android.R.id.content, fragment, fragmentTag);
+    	}
+    	
+    	InvoiceXpress.getInstance().getFragments().add(fragment);
+    	
+    	ft.commit();
+    }
+    
+    public void removeFragment(String fragmentTag) {
+    	final FragmentTransaction ft = getFragmentManager().beginTransaction();
+    	
+//    	if(FragmentTagsEnum.isDashBoardOrDocumentsListTag(fragmentTag)) {
+//    		
+//    		List<Fragment> fragments = InvoiceXpress.getInstance().getFragments();
+//    		Iterator<Fragment> iterator = fragments.iterator();
+//    		while(iterator.hasNext()) {
+//    			Fragment fragment = iterator.next();
+//    			if(fragment.getTag().startsWith(fragmentTag.substring(0, fragmentTag.length() - 1))) {
+//    				iterator.remove();
+//    				ft.remove(fragment);
+//    			}
+//    		}
+//    		
+//    	} else {
+//    		Fragment fragment = getFragmentManager().findFragmentByTag(fragmentTag);
+//    		InvoiceXpress.getInstance().getFragments().remove(fragment);
+//    		ft.remove(fragment);
+//    	}
+
+		Fragment fragment = getFragmentManager().findFragmentByTag(fragmentTag);
+		//InvoiceXpress.getInstance().removeLastFragment(fragment);
+		InvoiceXpress.getInstance().getFragments().remove(
+				InvoiceXpress.getInstance().getFragments().size() - 1);
+		ft.detach(fragment);
+
+		fragment = InvoiceXpress.getInstance().getLastFragment();
+		ft.attach(fragment);
+    	
+    	ft.commit();
+    	
+    } 
+
+
+}

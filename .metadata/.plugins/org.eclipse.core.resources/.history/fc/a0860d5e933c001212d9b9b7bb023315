@@ -1,0 +1,17 @@
+package pt.rupeal.invoicexpress.enums;
+
+public enum DocumentTypeEnum {
+
+	CHASH ("cash"),
+	CLAIM_CHECK ("claim_check"),
+	CREDIT ("credit"),
+	DEBIT ("debit"),
+	INVOICES ("invoices")
+	
+	private String value;
+	
+	private DocumentTypeEnum(String value){
+		this.value = value;
+	}
+	
+}

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/widget32"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="14dp"
+    android:paddingTop="14dp"
+    android:layout_marginBottom="-3dp" >
+
+    <RelativeLayout
+        android:id="@+id/status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="8dp" >
+
+        <ImageView
+            android:id="@+id/doc_type"
+            android:contentDescription="@string/empty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+		/>
+        
+        <ImageView
+            android:id="@+id/doc_status"
+            android:contentDescription="@string/empty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+			android:layout_alignParentLeft="true"
+			android:paddingTop="8dp"
+            android:layout_below="@id/doc_type"	
+		/>
+    
+    </RelativeLayout>
+    
+    <RelativeLayout
+        android:id="@+id/widget35"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+		android:layout_alignParentRight="true"
+        android:layout_toRightOf="@+id/widget34" 
+	>
+        <TextView
+            android:id="@+id/doc_ammount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:textColor="@color/details_text"
+            android:textSize="13sp"
+            android:gravity="right"
+		/>
+
+        <TextView
+            android:id="@+id/doc_due_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/doc_ammount"
+            android:layout_marginTop="18dp"
+            android:textSize="13sp"
+			android:gravity="right"
+		/>
+        
+        <ImageView 
+            android:id="@+id/doc_image_due_date"
+            android:contentDescription="@string/empty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/doc_due_date"
+            android:layout_below="@+id/doc_ammount"
+            android:layout_marginTop="24dp"
+            android:layout_marginRight="8dp"            
+            android:src="@drawable/icon_overdue"
+		/>
+        
+   	</RelativeLayout>
+   	
+   	<RelativeLayout
+        android:id="@+id/widget34"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/status" >
+
+   	    <TextView
+            android:id="@+id/doc_client"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:textColor="@color/details_text"
+            android:textSize="14sp" />
+        
+        <TextView
+            android:id="@+id/doc_client_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/doc_client"
+            android:textSize="12sp"
+            android:layout_marginTop="-2dp" 
+            />
+
+        <TextView
+            android:id="@+id/doc_start_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_below="@+id/doc_client_date"
+            android:textSize="13sp"
+            android:paddingTop="2dp"
+		/>
+
+    </RelativeLayout>
+
+</RelativeLayout>       

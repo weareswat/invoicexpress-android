@@ -1,0 +1,509 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:scrollbars="vertical"
+    android:background="@color/background"
+>
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical">    
+
+	    <RelativeLayout 
+			android:layout_width="match_parent"
+	  		android:layout_height="wrap_content"     	        
+	    >
+		    <!-- TextView name -->
+		    <TextView
+		        android:id="@+id/contact_details_title_name" 
+		        android:layout_width="match_parent"
+		    	android:layout_height="68dp"
+		    	android:textColor="@color/green_normal"
+		    	android:textSize="16sp"
+		    	android:background="@color/green_shadow"
+		    	android:paddingLeft="16dp"
+		    	android:gravity="center_vertical"
+			/>
+		    
+		    <ImageView
+			    android:contentDescription="@string/contacts"
+	    		android:layout_width="wrap_content"
+	    		android:layout_height="wrap_content"
+			    android:layout_alignParentRight="true"
+			    android:src="@drawable/icon_3_selected"
+	    		android:layout_centerVertical="true"
+	    		android:paddingRight="30dp"
+			/>
+	        
+	    </RelativeLayout>
+	    
+	    <!-- View seperate horizontal line associated to TextView name -->
+	    <View 
+	    	android:layout_width="match_parent"
+	    	android:layout_height="2dp"
+	    	android:background="@color/green_normal"    
+		/>
+	    
+	    <!-- Button get invoices -->
+	    <Button 
+			android:layout_width="match_parent"
+	    	android:layout_height="42sp"
+	  		android:layout_marginLeft="18dp"
+	  		android:layout_marginRight="18dp"
+	  		android:layout_marginTop="32dp"
+	  		android:layout_marginBottom="32dp"
+	    	android:background="@color/button_background"
+	    	android:text="@string/contact_details_button"
+	    	android:textColor="@color/button_text_color"       
+		/>
+	    
+	    <!-- TextView preferencial -->
+	    <TextView 
+			android:layout_width="match_parent"
+	    	android:layout_height="wrap_content"
+	    	android:layout_marginBottom="2dp"
+	  		android:paddingLeft="24dp"
+	    	android:text="@string/contact_details_preferencial_title" 
+	  		android:textColor="@color/contact_details_sub_titles"
+		/>
+	    
+	    <!-- View seperate horizontal line associated to label preferencial -->
+	    <View 
+	    	android:layout_width="match_parent"
+	    	android:layout_height="2dp"
+	  		android:layout_marginLeft="18dp"
+	  		android:layout_marginRight="18dp"   
+	    	android:background="@color/line_seperator"
+		/>
+	
+	    <LinearLayout 
+			android:layout_width="match_parent"
+	    	android:layout_height="60dp"
+			android:orientation="vertical"    	
+	    >
+	        
+			<!-- TextView preferencial name -->
+			<TextView
+			    android:id="@+id/contact_details_preferencial_name" 
+				android:layout_width="match_parent"
+		    	android:layout_height="wrap_content"
+				android:layout_marginTop="8dp"
+				android:layout_marginLeft="24dp"
+		  		android:textColor="@color/contact_details_text"
+		  		android:textSize="18sp"
+			/>
+			
+			<!-- TextView NAME -->
+			<TextView 
+				android:layout_width="match_parent"
+		    	android:layout_height="wrap_content"
+		  		android:layout_marginLeft="24dp"
+		    	android:text="@string/contact_details_name" 
+		    	android:textSize="11sp"
+			/>	
+	    </LinearLayout>
+	    
+		<!-- View seperate line associated to label preferencial name -->
+	    <View 
+	    	android:layout_width="match_parent"
+	    	android:layout_height="1dp"
+	  		android:layout_marginLeft="18dp"
+	  		android:layout_marginRight="18dp"     	   
+	    	android:background="@color/line_seperator"
+		/>
+		
+		<!-- RelativeLayout preferencial phone -->
+			<!-- View separate vertical line -->
+			<!-- Image phone -->
+			
+		<RelativeLayout 
+			android:layout_width="match_parent"
+	  		android:layout_height="60dp"     	
+	  		android:layout_marginLeft="18dp"
+	  		android:layout_marginRight="18dp"
+		>
+			<!-- TextView preferencial phone -->
+			<TextView
+			    android:id="@+id/contact_details_preferencial_phone"
+				android:layout_width="wrap_content"
+	    		android:layout_height="wrap_content"
+	    		android:layout_marginTop="8dp"
+	    		android:layout_marginLeft="6dp"
+	    		android:textColor="@color/contact_details_text"
+				android:textSize="18sp"   
+			/>
+			
+			<!-- TextView PHONE -->
+			<TextView 
+				android:layout_width="wrap_content"
+	    		android:layout_height="wrap_content"
+	    		android:layout_marginLeft="6dp"
+	    		android:text="@string/contact_details_phone1"
+	    		android:textSize="11sp"    		
+	    		android:layout_below="@id/contact_details_preferencial_phone" 
+	    	/>
+			
+			<ImageView
+			    android:id="@+id/contact_details_preferencial_phone_access"
+			    android:contentDescription="@string/contact_details_ic_phone_access_description"
+	    		android:layout_width="wrap_content"
+	    		android:layout_height="wrap_content"
+	    		android:layout_marginTop="8dp"
+			    android:layout_alignParentRight="true"
+			    android:src="@drawable/ic_device_access_call"
+	    		android:layout_centerVertical="true"
+			/>
+			
+			<View
+			    android:id="@+id/contact_details_preferencial_vertical_line_1" 
+	    		android:layout_width="1dp"
+	    		android:layout_height="22dp"
+	    		android:layout_marginTop="10dp"
+	    		android:layout_marginRight="8dp"
+	    		android:layout_toLeftOf="@id/contact_details_preferencial_phone_access"
+	    		android:background="@color/line_seperator"
+	    		android:layout_centerVertical="true"
+			/>
+				
+		</RelativeLayout>
+	
+		<!-- View seperate line associated to label preferencial phone -->
+	    <View 
+	    	android:layout_width="match_parent"
+	    	android:layout_height="1dp"
+	  		android:layout_marginLeft="18dp"
+	  		android:layout_marginRight="18dp"      	    
+	    	android:background="@color/line_seperator"
+		/>
+	    
+		<!-- RelativeLayout preferencial email -->
+			<!-- TextView preferencial email -->
+			<!-- TextView EMAIL -->
+			<!-- View separate vertical line -->
+			<!-- Image email -->
+			
+		<RelativeLayout 
+			android:layout_width="match_parent"
+	  		android:layout_height="60dp"     	
+	  		android:layout_marginLeft="18dp"
+	  		android:layout_marginRight="18dp"     	
+		>
+			<TextView
+			    android:id="@+id/contact_details_preferencial_email"
+				android:layout_width="wrap_content"
+	    		android:layout_height="wrap_content"
+	    		android:layout_marginTop="8dp"    		
+	    		android:layout_marginLeft="6dp"
+	    		android:textColor="@color/contact_details_text"
+				android:textSize="18sp"    			    
+			/>
+			
+			<TextView 
+				android:layout_width="wrap_content"
+	    		android:layout_height="wrap_content"
+	    		android:paddingLeft="6dp"
+				android:layout_below="@id/contact_details_preferencial_email" 
+	    		android:text="@string/contact_details_email1"
+	    		android:textSize="11sp"    		
+	    	/>
+			    
+			<ImageView
+				android:id="@+id/contact_details_preferencial_email_access"		    
+			    android:contentDescription="@string/contact_details_ic_email_access_description"
+	    		android:layout_width="wrap_content"
+	    		android:layout_height="wrap_content"		    
+			    android:layout_alignParentRight="true"
+			    android:src="@drawable/ic_content_email"
+				android:layout_centerVertical="true"
+			/>
+			
+			<View 
+			    android:id="@+id/contact_details_preferencial_vertical_line_2"
+	    		android:layout_width="1dp"
+	    		android:layout_height="22dp"
+	    		android:layout_toRightOf="@id/contact_details_preferencial_phone"
+	    		android:layout_marginTop="10dp"
+	    		android:layout_marginRight="8dp" 	
+	    		android:layout_toLeftOf="@id/contact_details_preferencial_email_access"    			
+	    		android:background="@color/line_seperator"
+	    		android:layout_centerVertical="true"    		  
+			/>
+		    
+		</RelativeLayout>	
+		
+	    <View 
+	    	android:layout_width="match_parent"
+	    	android:layout_height="1dp"
+	  		android:layout_marginLeft="18dp"
+	  		android:layout_marginRight="18dp"      	    
+	    	android:background="@color/line_seperator"
+		/>
+	    
+	    <!-- TextView geral -->
+	    <TextView 
+			android:layout_width="match_parent"
+	    	android:layout_height="wrap_content"
+	    	android:layout_marginTop="46dp"
+	    	android:layout_marginBottom="2dp"
+	  		android:paddingLeft="24dp"
+	    	android:text="@string/contact_details_geral_title" 
+	  		android:textColor="@color/contact_details_sub_titles"
+		/>
+	    
+	    <!-- View seperate horizontal line associated to label preferencial -->
+	    <View 
+	    	android:layout_width="match_parent"
+	    	android:layout_height="2dp"
+	  		android:layout_marginLeft="18dp"
+	  		android:layout_marginRight="18dp"   
+	    	android:background="@color/line_seperator"
+		/>
+	    
+	    <LinearLayout 
+			android:layout_width="match_parent"
+	    	android:layout_height="64dp"
+			android:orientation="vertical"    	
+	    >
+	        
+			<!-- TextView address -->
+			<TextView
+			    android:id="@+id/contact_details_general_address" 
+				android:layout_width="match_parent"
+		    	android:layout_height="wrap_content"
+				android:layout_marginTop="8dp"
+				android:layout_marginLeft="24dp"
+		  		android:textColor="@color/contact_details_text"
+		  		android:textSize="18sp"
+			/>
+			
+			<!-- TextView ADDRESS -->
+			<TextView 
+				android:layout_width="match_parent"
+		    	android:layout_height="wrap_content"
+		  		android:layout_marginLeft="24dp"
+		    	android:text="@string/contact_details_address" 
+		    	android:textSize="11sp"
+			/>	
+	    </LinearLayout>
+	    
+	    <View 
+	    	android:layout_width="match_parent"
+	    	android:layout_height="1dp"
+	  		android:layout_marginLeft="18dp"
+	  		android:layout_marginRight="18dp"   
+	    	android:background="@color/line_seperator"
+		/>    
+	    
+		<RelativeLayout 
+			android:layout_width="match_parent"
+	  		android:layout_height="60dp"     	
+	  		android:layout_marginLeft="18dp"
+	  		android:layout_marginRight="18dp"
+		>
+			<!-- TextView general phone -->
+			<TextView
+			    android:id="@+id/contact_details_general_phone"
+				android:layout_width="wrap_content"
+	    		android:layout_height="wrap_content"
+	    		android:layout_marginTop="8dp"
+	    		android:layout_marginLeft="6dp"
+	    		android:textColor="@color/contact_details_text"
+				android:textSize="18sp"   
+			/>
+			
+			<!-- TextView PHONE -->
+			<TextView 
+				android:layout_width="wrap_content"
+	    		android:layout_height="wrap_content"
+	    		android:layout_marginLeft="6dp"
+	    		android:text="@string/contact_details_phone1"
+	    		android:textSize="11sp"    		
+	    		android:layout_below="@id/contact_details_general_phone" 
+	    	/>
+			
+			<ImageView
+			    android:id="@+id/contact_details_preferencial_phone_access_2"
+			    android:contentDescription="@string/contact_details_ic_phone_access_description"
+	    		android:layout_width="wrap_content"
+	    		android:layout_height="wrap_content"
+	    		android:layout_marginTop="8dp"
+			    android:layout_alignParentRight="true"
+			    android:src="@drawable/ic_device_access_call"
+	    		android:layout_centerVertical="true"
+			/>
+			
+			<View
+	    		android:layout_width="1dp"
+	    		android:layout_height="22dp"
+	    		android:layout_marginTop="10dp"
+	    		android:layout_marginRight="8dp"
+	    		android:layout_toLeftOf="@id/contact_details_preferencial_phone_access_2"
+	    		android:background="@color/line_seperator"
+	    		android:layout_centerVertical="true"
+			/>
+				
+		</RelativeLayout> 
+		
+	    <View 
+	    	android:layout_width="match_parent"
+	    	android:layout_height="1dp"
+	  		android:layout_marginLeft="18dp"
+	  		android:layout_marginRight="18dp"   
+	    	android:background="@color/line_seperator"
+		/>
+	    
+		<RelativeLayout 
+			android:layout_width="match_parent"
+	  		android:layout_height="60dp"     	
+	  		android:layout_marginLeft="18dp"
+	  		android:layout_marginRight="18dp"
+		>
+			<!-- TextView general fax -->
+			<TextView
+			    android:id="@+id/contact_details_general_fax"
+				android:layout_width="wrap_content"
+	    		android:layout_height="wrap_content"
+	    		android:layout_marginTop="8dp"
+	    		android:layout_marginLeft="6dp"
+	    		android:textColor="@color/contact_details_text"
+				android:textSize="18sp"   
+			/>
+			
+			<!-- TextView FAX -->
+			<TextView 
+				android:layout_width="wrap_content"
+	    		android:layout_height="wrap_content"
+	    		android:layout_marginLeft="6dp"
+	    		android:text="@string/contact_details_fax"
+	    		android:textSize="11sp"    		
+	    		android:layout_below="@id/contact_details_general_fax" 
+	    	/>
+			
+			<ImageView
+			    android:id="@+id/contact_details_preferencial_phone_access_3"
+			    android:contentDescription="@string/contact_details_ic_phone_access_description"
+	    		android:layout_width="wrap_content"
+	    		android:layout_height="wrap_content"
+	    		android:layout_marginTop="8dp"
+			    android:layout_alignParentRight="true"
+			    android:src="@drawable/ic_device_access_call"
+	    		android:layout_centerVertical="true"
+			/>
+			
+			<View
+	    		android:layout_width="1dp"
+	    		android:layout_height="22dp"
+	    		android:layout_marginTop="10dp"
+	    		android:layout_marginRight="8dp"
+	    		android:layout_toLeftOf="@id/contact_details_preferencial_phone_access_3"
+	    		android:background="@color/line_seperator"
+	    		android:layout_centerVertical="true"
+			/>
+				
+		</RelativeLayout> 
+		
+	    <View 
+	    	android:layout_width="match_parent"
+	    	android:layout_height="1dp"
+	  		android:layout_marginLeft="18dp"
+	  		android:layout_marginRight="18dp"   
+	    	android:background="@color/line_seperator"
+		/>
+	    
+		<RelativeLayout 
+			android:layout_width="match_parent"
+	  		android:layout_height="60dp"     	
+	  		android:layout_marginLeft="18dp"
+	  		android:layout_marginRight="18dp"     	
+		>
+			<TextView
+			    android:id="@+id/contact_details_general_email"
+				android:layout_width="wrap_content"
+	    		android:layout_height="wrap_content"
+	    		android:layout_marginTop="8dp"    		
+	    		android:layout_marginLeft="6dp"
+	    		android:textColor="@color/contact_details_text"
+				android:textSize="18sp"    			    
+			/>
+			
+			<TextView 
+				android:layout_width="wrap_content"
+	    		android:layout_height="wrap_content"
+	    		android:paddingLeft="6dp"
+				android:layout_below="@id/contact_details_general_email" 
+	    		android:text="@string/contact_details_email1"
+	    		android:textSize="11sp"    		
+	    	/>
+			    
+			<ImageView
+				android:id="@+id/contact_details_general_email_access"		    
+			    android:contentDescription="@string/contact_details_ic_email_access_description"
+	    		android:layout_width="wrap_content"
+	    		android:layout_height="wrap_content"		    
+			    android:layout_alignParentRight="true"
+			    android:src="@drawable/ic_content_email"
+				android:layout_centerVertical="true"
+			/>
+			
+			<View 
+	    		android:layout_width="1dp"
+	    		android:layout_height="22dp"
+	    		android:layout_marginTop="10dp"
+	    		android:layout_marginRight="8dp" 	
+	    		android:layout_toLeftOf="@id/contact_details_general_email_access"    			
+	    		android:background="@color/line_seperator"
+	    		android:layout_centerVertical="true"    		  
+			/>
+		    
+		</RelativeLayout>    	    
+	
+	    <View 
+	    	android:layout_width="match_parent"
+	    	android:layout_height="1dp"
+	  		android:layout_marginLeft="18dp"
+	  		android:layout_marginRight="18dp"   
+	    	android:background="@color/line_seperator"
+		/>
+	    
+	    <LinearLayout 
+			android:layout_width="match_parent"
+	    	android:layout_height="60dp"
+			android:layout_marginTop="20dp"    	
+			android:orientation="vertical"
+	    >
+	        
+			<!-- TextView address -->
+			<TextView
+			    android:id="@+id/contact_details_general_nif" 
+				android:layout_width="match_parent"
+		    	android:layout_height="wrap_content"
+				android:layout_marginTop="8dp"
+				android:layout_marginLeft="24dp"
+		  		android:textColor="@color/contact_details_text"
+		  		android:textSize="18sp"
+			/>
+			
+			<!-- TextView ADDRESS -->
+			<TextView 
+				android:layout_width="match_parent"
+		    	android:layout_height="wrap_content"
+		  		android:layout_marginLeft="24dp"
+		    	android:text="@string/contact_details_nif" 
+		    	android:textSize="11sp"
+			/>	
+	    </LinearLayout> 
+	    
+	    <View 
+	    	android:layout_width="match_parent"
+	    	android:layout_height="1dp"
+	  		android:layout_marginLeft="18dp"
+	  		android:layout_marginRight="18dp"
+	  		android:layout_marginBottom="42dp"    
+	    	android:background="@color/line_seperator"
+		/>    	
+	
+	</LinearLayout>
+</ScrollView> 

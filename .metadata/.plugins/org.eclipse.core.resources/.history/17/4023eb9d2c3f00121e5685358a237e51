@@ -1,0 +1,27 @@
+package pt.rupeal.invoicexpress.widgets;
+
+import android.app.ActionBar;
+
+public class ActionBarSingleton {
+
+	private static ActionBarSingleton instance;
+	
+	private ActionBar actionBar;
+	
+	private ActionBarSingleton(ActionBar actionBar){
+		this.actionBar = actionBar;
+	}
+	
+	public static ActionBarSingleton getInstance(ActionBar actionBar){
+		if(actionBar != null){
+			instance = new ActionBarSingleton(actionBar);
+		}
+		
+		return instance;
+	}
+	
+	public ActionBar getActionBar(){
+		return actionBar;
+	}
+	
+}

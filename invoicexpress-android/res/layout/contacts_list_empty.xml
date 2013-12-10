@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background" >
+    
+    <ImageView 
+        android:id="@+id/no_documents_image_background"
+        android:contentDescription="@string/image_description"
+    	android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	android:layout_gravity="center_horizontal"
+    	android:layout_marginTop="80dp"
+    	android:background="@drawable/ix_logo_bg"
+    />
+    
+   	<View
+    	android:layout_width="match_parent"
+    	android:layout_height="1dp"
+    	android:layout_marginTop="35dp"
+    	android:layout_marginLeft="32dp"
+    	android:layout_marginRight="32dp"
+    	android:background="@color/line_seperator_top_black"
+	/>
+	
+	<View
+    	android:layout_width="match_parent"
+    	android:layout_height="1dp"
+    	android:layout_marginLeft="32dp"
+    	android:layout_marginRight="32dp"    	
+    	android:layout_marginBottom="25dp"
+    	android:background="@color/line_seperator_bottom_black"
+	/>
+    
+    <TextView 
+    	android:layout_width="match_parent"
+	  	android:layout_height="wrap_content"
+	  	android:text="@string/contacts_list_empty"
+	  	android:textColor="@color/documents_list_empty_title"
+	  	android:textSize="18sp"
+	  	android:gravity="center_horizontal"
+		android:shadowColor="@color/documents_list_empty_title_shadow"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="2"	  	
+    />
+    
+   	<View
+    	android:layout_width="match_parent"
+    	android:layout_height="1dp"
+    	android:layout_marginTop="25dp"
+    	android:layout_marginLeft="32dp"
+    	android:layout_marginRight="32dp"
+    	android:background="@color/line_seperator_top_black"
+	/>
+	
+	<View
+    	android:layout_width="match_parent"
+    	android:layout_height="1dp"
+    	android:layout_marginLeft="32dp"
+    	android:layout_marginRight="32dp"    	
+    	android:background="@color/line_seperator_bottom_black"
+	/>
+    
+</LinearLayout>

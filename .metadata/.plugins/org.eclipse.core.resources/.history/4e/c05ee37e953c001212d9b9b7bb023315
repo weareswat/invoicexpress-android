@@ -1,0 +1,15 @@
+package pt.rupeal.invoicexpress.utils;
+
+import pt.rupeal.invoicexpress.enums.DocumentTypeEnum;
+
+public class DocumentUtil {
+
+	public static int getTypeIconDrawableId(String type){
+		return DocumentTypeEnum.valueOf(type).getDrawableId();
+	}
+	
+	public static int getStateIconDrawableId(String type){
+		return DocumentTypeEnum.valueOf(type).getDrawableId();
+	}
+	
+}

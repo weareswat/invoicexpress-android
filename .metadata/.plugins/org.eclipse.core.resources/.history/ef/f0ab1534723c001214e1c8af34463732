@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<color name="green_normal">#99CB00</color>
+	<color name="green_shadow">#1B1E16</color>
+	<color name="lists_background">#171717</color>
+	<color name="documents_navigation_bar_background">#171717</color>
+</resources>

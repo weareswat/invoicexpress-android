@@ -1,0 +1,21 @@
+package pt.rupeal.invoicexpress.enums;
+
+import pt.rupeal.invoicexpress.R;
+
+public enum DocumentTypeEnum {
+
+	CHASH ("cash", R.drawable.icon_document_1),
+	CLAIM_CHECK ("claim_check", R.drawable.icon_document_2),
+	CREDIT ("credit", R.drawable.icon_document_3),
+	DEBIT ("debit", R.drawable.icon_document_4),
+	INVOICES ("invoices", R.drawable.icon_document_5);
+	
+	private String value;
+	private int drawableId;
+	
+	private DocumentTypeEnum(String value, int drawableId){
+		this.value = value;
+		this.drawableId = drawableId;
+	}
+	
+}

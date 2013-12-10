@@ -1,0 +1,66 @@
+package pt.rupeal.invoicexpress;
+
+import pt.rupeal.invoicexpress.fragments.ContactsFragment;
+import pt.rupeal.invoicexpress.fragments.DashBoardFragment;
+import pt.rupeal.invoicexpress.fragments.DocumentsFragment;
+import pt.rupeal.invoicexpress.widgets.TabListener;
+import android.os.Bundle;
+import android.app.ActionBar;
+import android.app.ActionBar.Tab;
+import android.app.Activity;
+import android.view.Menu;
+import android.view.MenuItem;
+
+public class MainActivity extends Activity {
+
+	@Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        // setup action bar for tabs       
+        ActionBar actionBar = getActionBar();
+        actionBar = this.actionBar;
+        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+        actionBar.setDisplayShowTitleEnabled(false);
+
+        Tab tab = actionBar.newTab()
+        		.setIcon(R.drawable.icon_1)
+        		.setTabListener(new TabListener<DashBoardFragment>(
+        				this, "dashboard", DashBoardFragment.class));
+        actionBar.addTab(tab);
+  
+        tab = actionBar.newTab()
+        		.setIcon(R.drawable.icon_2)
+        		.setTabListener(new TabListener<DocumentsFragment>(
+        				this, "documents", DocumentsFragment.class));
+        actionBar.addTab(tab);
+  
+        tab = actionBar.newTab()
+        		.setIcon(R.drawable.icon_3)
+        		.setTabListener(new TabListener<ContactsFragment>(
+        				this, "contacts", ContactsFragment.class));
+        actionBar.addTab(tab);
+  
+        tab = actionBar.newTab()
+        		.setIcon(R.drawable.icon_4)
+        		.setTabListener(new TabListener<DashBoardFragment>(
+        				this, "more", DashBoardFragment.class));
+        actionBar.addTab(tab); 
+      
+	}
+	
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.action_bar, menu);
+        return true;
+    }
+    
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+    	// TODO
+    	// Handle item selection - search and refresh icons
+    	return super.onOptionsItemSelected(item);
+    }
+    
+}

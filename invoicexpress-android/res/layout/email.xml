@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical"
+	android:background="@color/background"	
+>
+    
+    <EditText  
+        android:id="@+id/email_to"
+	   	android:layout_width="match_parent"
+	   	android:layout_height="wrap_content"
+	   	android:layout_marginTop="30dp"
+	   	android:layout_marginLeft="18dp"
+	   	android:layout_marginRight="18dp"
+	   	android:textColor="@color/details_text_2"
+	   	android:inputType="textEmailAddress"
+	   	android:hint="@string/email_to"
+	   	android:singleLine="true"
+	   	style="@style/invoicexpress_EditText"
+	/>    
+
+	<EditText  
+        android:id="@+id/email_subject"
+	   	android:layout_width="match_parent"
+	   	android:layout_height="wrap_content"
+	   	android:layout_marginTop="30dp"
+	   	android:layout_marginLeft="18dp"
+	   	android:layout_marginRight="18dp"
+	   	android:textColor="@color/details_text_2"
+	   	android:inputType="textEmailSubject"
+	   	android:hint="@string/email_subject"
+	   	android:singleLine="true" 
+	   	style="@style/invoicexpress_EditText"
+	/>    
+    
+    <EditText  
+        android:id="@+id/body"
+	   	android:layout_width="match_parent"
+	   	android:layout_height="wrap_content"
+	   	android:layout_marginTop="20dp"
+	   	android:layout_marginLeft="18dp"
+	   	android:layout_marginRight="18dp"
+	   	android:textColor="@color/details_text_2"
+	   	android:hint="@string/email_body"
+	   	android:inputType="textMultiLine"
+	   	style="@style/invoicexpress_EditText"
+    />
+        
+</LinearLayout>

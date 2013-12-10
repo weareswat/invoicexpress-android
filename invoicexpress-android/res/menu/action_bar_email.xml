@@ -1,0 +1,7 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+   	<item android:id="@+id/email_tab"
+   	    android:title="@string/email"
+        android:icon="@drawable/social_send_now"
+        android:showAsAction="always"
+	/>
+</menu>

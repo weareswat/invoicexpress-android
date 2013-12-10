@@ -1,0 +1,30 @@
+package pt.rupeal.invoicexpress.layouts;
+
+import pt.rupeal.invoicexpress.R;
+import android.app.Activity;
+import android.content.Context;
+import android.util.AttributeSet;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+
+public class ValueLabelImageLayout extends RelativeLayout {
+
+	public ValueLabelImageLayout(Context context) {
+		super(context);
+	}
+	
+	public ValueLabelImageLayout(Context context, AttributeSet attrs) {
+		super(context, attrs);
+	}
+	
+	@Override
+	protected void onFinishInflate() {
+		super.onFinishInflate();
+		((Activity)getContext()).getLayoutInflater().inflate(R.layout.details_value_label_image_row, this);
+	}
+	
+	public void setText(int resource){
+		((TextView) findViewById(R.id.details_value)).setText(resource);
+	}
+
+}

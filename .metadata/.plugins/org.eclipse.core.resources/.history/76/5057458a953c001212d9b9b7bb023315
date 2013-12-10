@@ -1,0 +1,25 @@
+package pt.rupeal.invoicexpress.enums;
+
+import pt.rupeal.invoicexpress.R;
+
+public enum DocumentStateEnum {
+
+	STATUS1 ("status1", R.drawable.icon_status_1),
+	STATUS2 ("status2", R.drawable.icon_status_2),
+	STATUS3 ("status3", R.drawable.icon_status_3),
+	STATUS4 ("status4", R.drawable.icon_status_4),
+	STATUS5 ("status5", R.drawable.icon_status_5);
+	
+	private String value;
+	private int drawableId;
+	
+	private DocumentStateEnum(String value, int drawableId){
+		this.value = value;
+		this.drawableId = drawableId;
+	}
+	
+	public int getDrawableId(){
+		return drawableId;
+	}
+
+}

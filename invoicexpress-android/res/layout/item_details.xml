@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://pt.rupeal.invoicexpress.layouts"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:scrollbars="vertical"
+    android:background="@color/background"
+    android:overScrollMode="never"
+>
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical"
+	>
+	
+		<View
+	        android:id="@+id/about_line_top"
+	    	android:layout_width="match_parent"
+	    	android:layout_height="1dp"
+	    	android:background="@color/actionBar_tabBar_lighter_line"
+		/>
+    
+	    <View 
+	        android:id="@+id/about_line_bottom"
+	    	android:layout_width="match_parent"
+	    	android:layout_height="1dp"
+	    	android:background="@color/actionBar_tabBar_darker_line"    
+		/>	    
+
+	    <TextView
+	        android:id="@+id/item_details_title" 
+	        android:layout_width="match_parent"
+	    	android:layout_height="68dp"
+	    	android:textColor="@color/details_text_2"
+	    	android:textSize="16sp"
+	    	android:background="@color/item_details_title_background"
+	    	android:paddingLeft="24dp"
+	    	android:gravity="center_vertical"
+		/>
+	    
+	    <View 
+	    	android:layout_width="match_parent"
+	    	android:layout_height="2dp"
+	    	android:background="@color/sub_titles_text_line_seperator"    
+		/>
+	    
+	    <pt.rupeal.invoicexpress.layouts.SubTitleLayout
+	        android:id="@+id/item_details_name_subtitle"
+			android:layout_width="match_parent"
+	    	android:layout_height="wrap_content"
+	    	android:layout_marginTop="38dp"
+	    	android:layout_marginBottom="14dp" 
+	    />
+	    
+	    <TextView
+	        android:id="@+id/item_details_name_value" 
+	        android:layout_width="match_parent"
+	    	android:layout_height="wrap_content"
+	    	android:textColor="@color/details_text"
+	    	android:paddingLeft="24dp"
+	    	android:gravity="center_vertical"
+		/>	    
+	    
+	    <pt.rupeal.invoicexpress.layouts.SubTitleLayout
+	        android:id="@+id/item_details_description_subtitle"
+			android:layout_width="match_parent"
+	    	android:layout_height="wrap_content"
+	    	android:layout_marginTop="38dp"
+	    	android:layout_marginBottom="16dp" 
+	    />	
+	    
+	    <TextView
+	        android:id="@+id/item_details_description_value" 
+	        android:layout_width="match_parent"
+	    	android:layout_height="wrap_content"
+	    	android:textColor="@color/details_text"
+	    	android:paddingLeft="24dp"
+	    	android:paddingRight="24dp"
+	    	android:gravity="center_vertical"
+		/>	  	    
+	    
+	    <pt.rupeal.invoicexpress.layouts.SubTitleLayout
+	        android:id="@+id/item_details_values_subtitle"
+			android:layout_width="match_parent"
+	    	android:layout_height="wrap_content"
+	    	android:layout_marginTop="38dp"
+	    	android:layout_marginBottom="8dp"
+	    />		    	    	    
+	    
+		<RelativeLayout
+		    android:id="@+id/item_details_values"
+			android:layout_width="wrap_content"
+		 	android:layout_height="wrap_content"     	
+		 	android:layout_marginLeft="24dp"
+		 	android:layout_marginRight="24dp"
+		 	android:layout_marginBottom="8dp"
+		>
+		
+	        <TextView 
+	            android:id="@+id/item_details_unitPrice_label"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:textColor="@color/details_text"
+	            android:text="@string/item_details_unitPrice_label"
+	            android:paddingTop="6dp"
+	            android:paddingBottom="6dp"
+				android:layout_alignParentLeft="true"
+					            
+	        />
+	        
+	        <TextView 
+	            android:id="@+id/item_details_unitPrice_value"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:textColor="@color/details_text"
+	            android:paddingTop="6dp"
+	            android:paddingBottom="6dp"
+	            android:layout_alignParentRight="true"
+	            
+			/>
+	        
+	        <TextView 
+	            android:id="@+id/item_details_quantity_label"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+				android:layout_alignParentLeft="true"
+				android:layout_below="@id/item_details_unitPrice_label"
+				android:text="@string/item_details_quantity_label"            
+	            android:textColor="@color/details_text"
+	            android:paddingTop="6dp"
+	            android:paddingBottom="6dp"
+	            
+	            />
+	        
+	        <TextView 
+	            android:id="@+id/item_details_quantity_value"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_alignParentRight="true"	            
+				android:layout_below="@id/item_details_unitPrice_value"
+	            android:textColor="@color/details_text"
+	            android:paddingTop="6dp"
+	            android:paddingBottom="6dp"
+					            
+	            />
+	        
+	        <TextView 
+	            android:id="@+id/item_details_taxes_label"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:text="@string/item_details_taxes_label"
+	            android:textColor="@color/details_text"
+	            android:paddingTop="6dp"
+	            android:paddingBottom="6dp"
+				android:layout_alignParentLeft="true"
+				android:layout_below="@id/item_details_quantity_label"
+									            
+	            
+	            />
+	        
+	        <TextView 
+	            android:id="@+id/item_details_taxes_value"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:textColor="@color/details_text"
+	            android:paddingTop="6dp"
+	            android:paddingBottom="6dp"
+	            android:layout_alignParentRight="true"
+				android:layout_below="@id/item_details_quantity_value"
+	            	            
+	            />
+	        
+	        <TextView 
+	            android:id="@+id/item_details_discounts_label"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+				android:text="@string/item_details_discounts_label"	            
+	            android:textColor="@color/details_text"
+	            android:paddingTop="6dp"
+	            android:paddingBottom="6dp"
+				android:layout_alignParentLeft="true"
+				android:layout_below="@id/item_details_taxes_label"					            
+	            
+	            />
+	        
+	        <TextView 
+	            android:id="@+id/item_details_discounts_value"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:textColor="@color/details_text"
+	            android:paddingTop="6dp"
+	            android:paddingBottom="6dp"
+	            android:layout_alignParentRight="true"
+				android:layout_below="@id/item_details_taxes_value"
+					            	            
+	            />
+		    
+		</RelativeLayout>
+	    
+	    <View 
+	    	android:layout_width="match_parent"
+	    	android:layout_height="1dp"
+	  		android:layout_marginLeft="18dp"
+	  		android:layout_marginRight="18dp"      	    
+	    	android:background="@color/line_seperator"
+		/>
+	    
+		<RelativeLayout
+			android:layout_width="wrap_content"
+		 	android:layout_height="wrap_content"     	
+		 	android:layout_marginLeft="24dp"
+		 	android:layout_marginRight="24dp"
+		 	android:layout_marginTop="18dp"
+		 	android:layout_marginBottom="18dp"
+		>
+		
+			<TextView
+				android:layout_width="wrap_content"
+		    	android:layout_height="wrap_content"
+		    	android:layout_alignParentLeft="true"
+		    	android:text="@string/item_details_total"
+		    	android:textColor="@color/details_text"
+			/>
+			
+			<TextView
+			    android:id="@+id/item_details_total_value" 
+				android:layout_width="wrap_content"
+		    	android:layout_height="wrap_content"
+		    	android:layout_alignParentRight="true"
+		    	android:textColor="@color/details_text"
+			/>		    
+		    
+		</RelativeLayout>	    
+	    
+	    <View 
+	    	android:layout_width="match_parent"
+	    	android:layout_height="1dp"
+	  		android:layout_marginLeft="18dp"
+	  		android:layout_marginRight="18dp"
+	  		android:layout_marginBottom="48dp"      	    
+	    	android:background="@color/line_seperator"
+		/>	    	    
+	    
+	</LinearLayout>
+    
+</ScrollView>

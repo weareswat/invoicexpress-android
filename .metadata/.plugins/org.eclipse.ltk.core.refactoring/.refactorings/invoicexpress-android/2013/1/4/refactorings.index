@@ -1,0 +1,31 @@
+1358772241928	Delete element
+1358772266719	Delete element
+1358778925481	Rename local variable 'i'
+1358779135916	Rename method 'sendEmailDirect'
+1358779145623	Rename local variable 'v'
+1358783681123	Delete elements
+1358783685606	Delete element
+1358783688341	Delete element
+1358783691208	Delete element
+1358784360351	Rename local variable 'aid'
+1358794268541	Rename resource 'icon_document_5.png'
+1358794283009	Rename resource 'icon_document_4.png'
+1358794294474	Rename resource 'icon_document_5_tmp.png'
+1358855651598	Rename local variable 'upperCade'
+1358855860849	Rename enum constant 'PURCHASE_ORDER'
+1358982589014	Rename field 'client'
+1358982598504	Rename method 'getClient'
+1358982603131	Rename method 'setClient'
+1358982608213	Rename local variable 'client'
+1359039254032	Delete element
+1359126004372	Rename field 'url'
+1359126021994	Rename local variable 'url'
+1359126148411	Rename method 'getUrl'
+1359126153864	Rename method 'getUrl'
+1359126960214	Rename method 'getUrlChangeStatus'
+1359133182154	Rename field 'dueData'
+1359135494596	Rename method 'setDuedate'
+1359242707580	Rename method 'setdocumentType'
+1359247412501	Delete element
+1359283490861	Rename local variable 'teste'
+1359285638758	Rename method 'getInvoiceStatusGraphs'

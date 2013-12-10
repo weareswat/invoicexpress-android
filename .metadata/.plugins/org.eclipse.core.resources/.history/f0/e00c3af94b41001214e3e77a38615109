@@ -1,0 +1,72 @@
+package pt.rupeal.invoicexpress.activities;
+
+import pt.rupeal.invoicexpress.R;
+import pt.rupeal.invoicexpress.fragments.ContactDetailsFragment;
+import pt.rupeal.invoicexpress.fragments.DashBoardFragment;
+import pt.rupeal.invoicexpress.fragments.DocumentsFragment;
+import pt.rupeal.invoicexpress.widgets.TabListener;
+import android.app.ActionBar;
+import android.app.ActionBar.Tab;
+import android.app.Activity;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+
+public class GetContactDetailsActivity extends Activity {
+
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		// setContentView(R.layout.contact_details);
+		
+		initializeActionBar();
+	}
+	
+	private void initializeActionBar(){
+		
+        // setup action bar for tabs
+        ActionBar actionBar = getActionBar();
+        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
+        actionBar.setDisplayShowTitleEnabled(false);
+
+        Tab tab = actionBar.newTab()
+        		.setIcon(R.drawable.icon_1)
+        		.setTabListener(new TabListener<DashBoardFragment>(
+        				this, "dashboard", DashBoardFragment.class));
+        actionBar.addTab(tab);
+  
+        tab = actionBar.newTab()
+        		.setIcon(R.drawable.icon_2)
+        		.setTabListener(new TabListener<DocumentsFragment>(
+        				this, "documents", DocumentsFragment.class));
+        actionBar.addTab(tab);
+  
+        tab = actionBar.newTab()
+        		.setIcon(R.drawable.icon_3)
+        		.setTabListener(new TabListener<ContactDetailsFragment>(
+        				this, "contacts", ContactDetailsFragment.class));
+        actionBar.addTab(tab, 2, true);
+  
+        tab = actionBar.newTab()
+        		.setIcon(R.drawable.icon_4)
+        		.setTabListener(new TabListener<DashBoardFragment>(
+        				this, "more", DashBoardFragment.class));
+        actionBar.addTab(tab);
+	}
+	
+
+	
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.action_bar_contact_details, menu);
+        return true;
+    }
+    
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+    	// Handle item selection - search and refresh icons
+    	return super.onOptionsItemSelected(item);
+    }
+
+}

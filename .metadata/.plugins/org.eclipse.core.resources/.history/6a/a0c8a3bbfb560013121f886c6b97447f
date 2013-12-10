@@ -1,0 +1,124 @@
+package pt.rupeal.invoicexpress.activities;
+
+import pt.rupeal.invoicexpress.R;
+import pt.rupeal.invoicexpress.server.InvoiceXpress;
+import pt.rupeal.invoicexpress.server.AuthenticationRestHandler;
+import pt.rupeal.invoicexpress.utils.ScreenLayoutUtil;
+import pt.rupeal.invoicexpress.utils.StringUtil;
+import android.accounts.AccountAuthenticatorActivity;
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Bundle;
+import android.os.Vibrator;
+import android.text.SpannableString;
+import android.text.style.UnderlineSpan;
+import android.util.Log;
+import android.view.Menu;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+
+public class AuthenticationActivity extends AccountAuthenticatorActivity {
+
+	private EditText username;
+	private EditText password;
+	
+	private boolean lowerThanHdpi() {
+		return getResources().getDisplayMetrics().density < 1.5;
+	}
+	
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		// set view login
+		setContentView(R.layout.login);
+		// user name
+		username = (EditText) findViewById(R.id.login_email);
+		// the margin top should be settled according the height
+		int cenas = Math.round(ScreenLayoutUtil.convertDpToPixels(this, 30));
+		Log.d("*********** CENAS 1 **********************", cenas + " " + InvoiceXpress.getInstance().getScreenHeight(this));
+		((ViewGroup.MarginLayoutParams) username.getLayoutParams()).topMargin = cenas; 
+		// password
+		password = (EditText) findViewById(R.id.login_password);
+		// the margin top should be settled according the height
+		cenas = Math.round(ScreenLayoutUtil.convertDpToPixels(this, 10));
+		Log.d("*********** CENAS 2 **********************", cenas + " " + InvoiceXpress.getInstance().getScreenHeight(this));
+		((ViewGroup.MarginLayoutParams) password.getLayoutParams()).topMargin = cenas;
+		// login button
+		Button loginButton = (Button) findViewById(R.id.login);
+		((ViewGroup.MarginLayoutParams) loginButton.getLayoutParams()).topMargin = Math.round(ScreenLayoutUtil.convertDpToPixels(this, 36));
+		loginButton.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View v) {
+		    	// vibrate - time in milliseconds
+		    	((Vibrator) getApplication().getSystemService(Context.VIBRATOR_SERVICE)).vibrate(50);
+				// make login
+				if(isValidLoginData()) {
+		    		login();
+		    	}
+			}
+		});
+		
+		Button addAccountButton = (Button) findViewById(R.id.create_account);
+		CharSequence text = addAccountButton.getText();
+		SpannableString content = new SpannableString(text);
+		content.setSpan(new UnderlineSpan(), 0, text.length(), 0);
+		addAccountButton.setText(content);
+		addAccountButton.setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+		    	// vibrate - time in milliseconds
+		    	((Vibrator) v.getContext().getSystemService(Context.VIBRATOR_SERVICE)).vibrate(50);
+		    	// start browser activity
+				Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(InvoiceXpress.INVOICE_EXPRESS_URL));
+				startActivity(i);
+				// finish activity
+				Intent returnIntent = new Intent();
+				setResult(Activity.RESULT_CANCELED, returnIntent);     
+				finish();
+			}
+		});
+		
+	}
+	
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        return false;
+    }
+
+    private void login() {
+    	String[] params = new String[] {username.getText().toString(), password.getText().toString()};
+		new AuthenticationRestHandler(this).execute(params);
+    }
+    
+    private boolean isValidLoginData() {
+    	
+    	if(username.getText().toString().isEmpty() 
+    			|| password.getText().toString().isEmpty()) {
+    		
+    		if(InvoiceXpress.DEBUG) {
+    			Log.d(this.getClass().getCanonicalName(), "UserName: " + username.getText().toString() + " Password: " +
+    					password.getText().toString());
+    		}
+    		
+    		Toast.makeText(this, getResources().getString(R.string.error_fields_mandatory), Toast.LENGTH_LONG).show();
+    		return false;
+    	}
+    	
+    	if(!StringUtil.isValidEmailAddress(username.getText().toString())) {
+    		if(InvoiceXpress.DEBUG) {
+    			Log.d(this.getClass().getCanonicalName(), "UserName: " + username.getText().toString());
+    		}
+    		Toast.makeText(this, getResources().getString(R.string.error_invalid_username), Toast.LENGTH_LONG).show();
+    		return false;
+    	}
+    	
+    	return true;
+    }
+	
+}

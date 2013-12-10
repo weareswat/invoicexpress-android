@@ -1,0 +1,36 @@
+package pt.rupeal.invoicexpress.layouts;
+
+import pt.rupeal.invoicexpress.R;
+import android.app.Activity;
+import android.content.Context;
+import android.util.AttributeSet;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+public class SubTitleView extends LinearLayout {
+
+	public SubTitleView(Context context) {
+		super(context);
+	}
+	
+	public SubTitleView(Context context, AttributeSet attr) {
+		super(context, attr);
+	}	
+	@Override
+	protected void onFinishInflate() {
+		super.onFinishInflate();
+		((Activity)getContext()).getLayoutInflater().inflate(R.layout.sub_title, this);
+	}
+	
+	public void setText(int resource){
+		((TextView) findViewById(R.id.sub_title_text_view)).setText(resource);
+	}
+	
+	public void setMarginTop(int top){
+		ViewGroup.MarginLayoutParams layoutParams = (ViewGroup.MarginLayoutParams) this.getLayoutParams();
+	    layoutParams.setMargins(0, top, 0, 0);
+	    this.setLayoutParams(layoutParams);
+	}
+	
+}

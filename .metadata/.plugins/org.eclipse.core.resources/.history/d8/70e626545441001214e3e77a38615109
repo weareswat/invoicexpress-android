@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <string name="empty"></string>
+
+    <string name="app_name">InvoiceXpress</string>
+    
+    <string name="search">Procurar</string>
+    <string name="refresh">Actualizar</string>
+    
+    <string name="contacts">contacts</string>
+    
+	<string name="doc_type_all">TODAS</string>
+    <string name="doc_type_invoice">FACTURAS</string>
+    <string name="doc_type_cash">DINHEIRO</string>
+    <string name="doc_type_credit">CRÉDITO</string>
+    <string name="doc_type_debit">DÉBITO</string>
+    <string name="doc_type_receipt">RECIBOS</string>
+    
+    <!-- Contact details --> <!-- useless -->
+    <string name="contact_details_button">Consultar facturas</string>
+    <string name="contact_details_preferencial_title">PREFERENCIAL</string>
+    <string name="contact_details_name">NOME</string>
+    <string name="contact_details_phone1">TELEMÓVEL</string>
+    <string name="contact_details_email1">EMAIL</string>
+    
+    <string name="contact_details_address">MORADA</string>
+    <string name="contact_details_nif">CONTRIBUINTE</string>
+    <string name="contact_details_phone2">TELEMÓVEL</string>
+    <string name="contact_details_fax">FAX</string>    
+    <string name="contact_details_email2">EMAIL</string>
+    
+    <string name="contact_details_geral_title">GERAL</string>
+    
+    <string name="details_image_description"></string>
+    <string name="contact_details_ic_phone_access_description">fazer chamada</string>
+    <string name="contact_details_ic_email_access_description">enviar emaill</string>
+    
+</resources>

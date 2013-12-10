@@ -1,0 +1,7 @@
+package pt.rupeal.invoicexpress.widgets;
+
+import android.view.View;
+
+public class SubTitleView extends View {
+
+}

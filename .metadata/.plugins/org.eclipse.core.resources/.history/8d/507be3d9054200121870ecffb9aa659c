@@ -1,0 +1,44 @@
+package pt.rupeal.invoicexpress.dtos;
+
+import java.util.Collection;
+import java.util.HashMap;
+
+public class ItemDetailsDTO {
+
+	private String invoiceId;
+	private String name;
+	private String description;
+	private HashMap<String, String> values;
+	
+	private Double total;
+	
+	public String getInvoiceId() {
+		return invoiceId;
+	}
+	public void setInvoiceId(String invoiceId) {
+		this.invoiceId = invoiceId;
+	}
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	public HashMap<String, String> getValues() {
+		return values;
+	}
+	public void setValues(HashMap<String, String> values) {
+		this.values = values;
+	}
+	
+	public double getTotal(){
+		return 600.00;
+	}
+}

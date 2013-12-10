@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="SynchronizeViewSettings">
+		<item value="false" key="linkWithEditor"/>
+		<item value="1355185349491" key="lastactiveparticipant_sec_id"/>
+		<item value="org.eclipse.egit.ui.modelCompareParticipant" key="lastactiveparticipant_id"/>
+		<section name="org.eclipse.egit.ui.modelCompareParticipant.1355185292177">
+		</section>
+		<section name="org.eclipse.egit.ui.modelCompareParticipant.1354995033014">
+		</section>
+		<section name="org.eclipse.egit.ui.modelCompareParticipant.1355138544688">
+		</section>
+		<section name="org.eclipse.egit.ui.modelCompareParticipant.1355002323924">
+			<item value="1" key="org.eclipse.team.ui.P_SYNCVIEWPAGE_MODE"/>
+		</section>
+		<section name="org.eclipse.egit.ui.modelCompareParticipant.1355183051050">
+		</section>
+		<section name="org.eclipse.egit.ui.modelCompareParticipant.1354996374174">
+		</section>
+		<section name="org.eclipse.egit.ui.modelCompareParticipant.1355185349491">
+			<item value="2" key="org.eclipse.team.ui.P_SYNCVIEWPAGE_MODE"/>
+		</section>
+		<section name="org.eclipse.egit.ui.modelCompareParticipant.1355102963427">
+			<item value="2" key="org.eclipse.team.ui.P_SYNCVIEWPAGE_MODE"/>
+		</section>
+		<section name="org.eclipse.egit.ui.modelCompareParticipant.1355184365706">
+		</section>
+		<section name="org.eclipse.egit.ui.modelCompareParticipant.1355183142589">
+		</section>
+		<section name="org.eclipse.egit.ui.modelCompareParticipant.1355102558872">
+		</section>
+		<section name="org.eclipse.egit.ui.modelCompareParticipant.1354996275178">
+		</section>
+		<section name="org.eclipse.egit.ui.modelCompareParticipant.1355102708600">
+		</section>
+		<section name="org.eclipse.egit.ui.modelCompareParticipant.1355102160204">
+		</section>
+		<section name="org.eclipse.egit.ui.modelCompareParticipant.1355181745313">
+		</section>
+		<section name="org.eclipse.egit.ui.modelCompareParticipant.1355102608073">
+		</section>
+		<section name="org.eclipse.egit.ui.modelCompareParticipant.1355140582490">
+		</section>
+		<section name="org.eclipse.egit.ui.modelCompareParticipant.1355086572895">
+		</section>
+		<section name="org.eclipse.egit.ui.modelCompareParticipant.1355181518223">
+		</section>
+	</section>
+	<section name="ConfigureProjectWizard">
+	</section>
+</section>

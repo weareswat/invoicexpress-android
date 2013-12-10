@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <color name="actionBar_title_textColor">#ADADAD</color>
+    <color name="actionBar_tabBar_background">#333333</color>
+    <!-- color name="actionBar_tabBar_lighter_line">#434343</color>
+    <color name="actionBar_tabBar_darker_line">#000000</colo r-->
+    
+    <color name="actionBar_tabBar_lighter_line">#555555</color>
+    <color name="actionBar_tabBar_darker_line">#000000</color>
+    
+    <color name="background">#171717</color>
+
+	<color name="button_background">#262626</color>
+	<color name="button_text_color">#636363</color>
+	
+	<color name="documents_button_image_background">#2E2E2E</color>
+	<color name="documents_button_image_background_pressed">#2F3421</color>
+	<color name="documents_button_label_background">#232323</color>
+	<color name="documents_button_label_background_pressed">#242915</color>
+	
+	<!-- color name="documents_list_empty_title">#313131</color -->
+	<color name="documents_list_empty_title">#505050</color>
+	<color name="documents_list_empty_title_shadow">#000000</color>
+	
+	<color name="documents_over_due_normal">#A7A7A7</color>
+	<color name="documents_over_due_red">#A70A0A</color>
+	
+	<color name="sub_titles_text">#636363</color>
+	<color name="sub_titles_text_line_seperator">#5D5D5D</color>
+	
+	<color name="details_text">#FFFFFF</color>
+	<color name="details_text_2">#BBBBBB</color>
+	<color name="details_text_3">#3C3C3C</color>
+
+	<!-- horizontal scroll -->
+	<color name="horizontal_navigation_bar_background">#333333</color>
+	<color name="horizontal_navigation_bar_text">#FFFFFF</color>
+
+	<!-- item -->
+	<color name="item_details_title_background">#232323</color>
+
+	<color name="green_normal">#99CC00</color>
+	<color name="green_normal_2">#7BA304</color>
+	<color name="green_shadow">#1B1E16</color>
+	
+	<color name="line_seperator">#2F2F2F</color>
+	<color name="line_seperator_top">#121212</color>
+	<color name="line_seperator_bottom">#2F2F2F</color>
+	<color name="line_seperator_top_black">#000000</color>
+	<color name="line_seperator_bottom_black">#1F1F1F</color>
+
+	<color name="text_color">#636363</color>	
+
+	<color name="dialog_title_background">#2F2F2F</color>
+	<color name="dialog_title_text_color">#7E7E7E</color>
+	
+	<!-- dashboard -->
+	<color name="dashboard_white_color">#FFFFFF</color>
+	<color name="dashboard_green_color">#7EB200</color>
+	<color name="dashboard_red_color">#B90202</color>
+	<color name="dashboard_line_horizontal">#2B3B02</color>
+	<color name="dashboard_labels">#616161</color>
+	<color name="dashboard_legend_background">#1B1B1B</color>
+	
+	<!-- dashboard quarterly -->
+	<color name="dashboard_quarterly_number_background">#2A2A2A</color>
+	<color name="dashboard_quarterly_legend_bullet_color">#2A2A2A</color>
+	<color name="dashboard_quarterly_legend_color">#565656</color>
+	
+	<!-- dashboard top debtors -->
+	<color name="dashboard_debtor_1">#DC0000</color>
+	<color name="dashboard_debtor_2">#AA0000</color>
+	<color name="dashboard_debtor_3">#740000</color>
+	<color name="dashboard_debtor_4">#4B0000</color>
+	<color name="dashboard_debtor_5">#250000</color>
+	
+	<color name="dashboard_no_debtors">#99CC00</color>
+	<color name="dashboard_no_debtors_center">#6E9A02</color>
+	
+	<color name="dashboard_debtor_border">#2E2E2E</color>
+	
+</resources>

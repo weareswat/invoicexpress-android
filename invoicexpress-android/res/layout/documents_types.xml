@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@color/background"
+	android:orientation="vertical"
+	android:weightSum="4"
+>
+
+    <Button
+        android:id="@+id/doc_type_all"
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		android:layout_weight="1"
+		android:layout_marginTop="16dp"
+		android:layout_marginBottom="8dp"
+		android:layout_marginRight="16dp"
+		android:layout_marginLeft="16dp"
+		android:background="@drawable/selectable_documents_types"
+		android:text="@string/doc_type_all"
+    />
+		<!-- android:background="@color/documents_button_image_background" -->
+    
+    <LinearLayout 
+        android:id="@+id/doc_first_row"
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		android:layout_weight="1"
+		android:layout_marginTop="8dp"
+		android:layout_marginBottom="8dp"
+		android:layout_marginLeft="16dp"
+		android:layout_marginRight="16dp"
+        android:orientation="horizontal"
+        android:baselineAligned="false"
+        android:weightSum="2" >
+        
+	    <pt.rupeal.invoicexpress.layouts.ImageButtonLayout
+	    	android:id="@+id/doc_type_invoice"
+			android:layout_height="match_parent"
+			android:layout_width="0dp"
+			android:layout_weight="1"
+			android:layout_marginRight="0dp"
+		/>
+	        
+	    <pt.rupeal.invoicexpress.layouts.ImageButtonLayout
+	    	android:id="@+id/doc_type_simple_invoice"
+			android:layout_width="0dp"
+			android:layout_height="match_parent"
+			android:layout_weight="1"
+			android:layout_marginLeft="16dp"
+		/>
+        
+    </LinearLayout>
+    
+    <LinearLayout 
+        android:id="@+id/doc_second_row"
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		android:layout_weight="1"
+		android:layout_marginTop="8dp"
+		android:layout_marginBottom="8dp"
+		android:layout_marginLeft="16dp"
+		android:layout_marginRight="16dp"
+        android:orientation="horizontal"
+        android:baselineAligned="false" >	    
+    
+	    <pt.rupeal.invoicexpress.layouts.ImageButtonLayout
+	    	android:id="@+id/doc_type_cash"
+			android:layout_width="0dp"
+			android:layout_height="match_parent"
+			android:layout_weight="1"
+			android:layout_marginRight="8dp"         
+		/>
+	    
+	    <pt.rupeal.invoicexpress.layouts.ImageButtonLayout 
+	    	android:id="@+id/doc_type_credit"
+			android:layout_width="0dp"
+			android:layout_height="match_parent"
+			android:layout_weight="1"
+			android:layout_marginLeft="8dp"
+		/>
+    
+    </LinearLayout>
+    
+    <LinearLayout 
+        android:id="@+id/doc_third_row"
+		android:layout_width="match_parent"
+		android:layout_height="0dp"
+		android:layout_weight="1"
+		android:layout_marginTop="8dp"
+		android:layout_marginBottom="8dp"
+		android:layout_marginLeft="16dp"
+		android:layout_marginRight="16dp"
+        android:orientation="horizontal"
+        android:baselineAligned="false" >	    
+    
+	    <pt.rupeal.invoicexpress.layouts.ImageButtonLayout 
+	    	android:id="@+id/doc_type_debit"
+			android:layout_width="0dp"
+			android:layout_height="match_parent"
+			android:layout_weight="1"
+			android:layout_marginRight="8dp"
+		/>
+	    
+	    <pt.rupeal.invoicexpress.layouts.ImageButtonLayout 
+	    	android:id="@+id/doc_type_receipt"
+			android:layout_width="0dp"
+			android:layout_height="match_parent"
+			android:layout_weight="1"
+			android:layout_marginLeft="8dp"
+		/>
+	    
+    </LinearLayout>
+    
+    <LinearLayout 	        
+        android:id="@+id/doc_forth_row"
+		android:layout_width="match_parent"
+		android:layout_height="10dp"
+		android:layout_below="@id/doc_third_row"
+	>
+        
+    </LinearLayout>
+    
+</LinearLayout>

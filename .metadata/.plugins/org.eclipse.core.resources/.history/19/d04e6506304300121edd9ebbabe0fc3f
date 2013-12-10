@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://pt.rupeal.invoicexpress.layouts"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:scrollbars="vertical"
+    android:background="@color/background"
+>
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical"
+	>  
+
+	    <TextView
+	        android:id="@+id/item_details_title" 
+	        android:layout_width="match_parent"
+	    	android:layout_height="68dp"
+	    	android:textColor="@color/details_text"
+	    	android:textSize="16sp"
+	    	android:background="@color/#262626"
+	    	android:paddingLeft="24dp"
+	    	android:gravity="center_vertical"
+		/>
+	    
+	    <View 
+	    	android:layout_width="match_parent"
+	    	android:layout_height="2dp"
+	    	android:background="@color/line_seperator"    
+		/>
+	    
+	    <pt.rupeal.invoicexpress.layouts.SubTitleLayout
+	        android:id="@+id/item_details_name_subtitle"
+			android:layout_width="match_parent"
+	    	android:layout_height="wrap_content"
+	    	android:layout_marginTop="38dp"
+	    	android:layout_marginBottom="16dp" 
+	    />
+	    
+	    <TextView
+	        android:id="@+id/item_details_name_value" 
+	        android:layout_width="match_parent"
+	    	android:layout_height="wrap_content"
+	    	android:textColor="@color/details_text"
+	    	android:paddingLeft="24dp"
+	    	android:gravity="center_vertical"
+		/>	    
+	    
+	    <pt.rupeal.invoicexpress.layouts.SubTitleLayout
+	        android:id="@+id/item_details_description_subtitle"
+			android:layout_width="match_parent"
+	    	android:layout_height="wrap_content"
+	    	android:layout_marginTop="38dp"
+	    	android:layout_marginBottom="16dp" 
+	    />	
+	    
+	    <TextView
+	        android:id="@+id/item_details_description_value" 
+	        android:layout_width="match_parent"
+	    	android:layout_height="wrap_content"
+	    	android:textColor="@color/details_text"
+	    	android:paddingLeft="24dp"
+	    	android:paddingRight="24dp"
+	    	android:gravity="center_vertical"
+		/>	  	    
+	    
+	    <pt.rupeal.invoicexpress.layouts.SubTitleLayout
+	        android:id="@+id/item_details_values_subtitle"
+			android:layout_width="match_parent"
+	    	android:layout_height="wrap_content"
+	    	android:layout_marginTop="38dp"
+	    	android:layout_marginBottom="8dp"
+	    />		    	    	    
+	    
+		<RelativeLayout
+		    android:id="@+id/item_details_values"
+			android:layout_width="wrap_content"
+		 	android:layout_height="wrap_content"     	
+		 	android:layout_marginLeft="24dp"
+		 	android:layout_marginRight="24dp"
+		/>
+	    
+	    <View 
+	    	android:layout_width="match_parent"
+	    	android:layout_height="1dp"
+	  		android:layout_marginLeft="18dp"
+	  		android:layout_marginRight="18dp"      	    
+	    	android:background="@color/line_seperator"
+		/>
+	    
+		<RelativeLayout
+			android:layout_width="wrap_content"
+		 	android:layout_height="wrap_content"     	
+		 	android:layout_marginLeft="24dp"
+		 	android:layout_marginRight="24dp"
+		 	android:layout_marginTop="18dp"
+		 	android:layout_marginBottom="18dp"
+		>
+		
+			<TextView
+				android:layout_width="wrap_content"
+		    	android:layout_height="wrap_content"
+		    	android:text="@string/item_details_total"
+		    	android:layout_alignParentLeft="true"
+			/>
+			
+			<TextView
+			    android:id="@+id/item_details_total_value" 
+				android:layout_width="wrap_content"
+		    	android:layout_height="wrap_content"
+		    	android:layout_alignParentRight="true"
+			/>		    
+		    
+		</RelativeLayout>	    
+	    
+	    <View 
+	    	android:layout_width="match_parent"
+	    	android:layout_height="2dp"
+	  		android:layout_marginLeft="18dp"
+	  		android:layout_marginRight="18dp"
+	  		android:layout_marginBottom="48dp"      	    
+	    	android:background="@color/line_seperator"
+		/>	    	    
+	        
+	    
+	</LinearLayout>
+    
+</ScrollView>

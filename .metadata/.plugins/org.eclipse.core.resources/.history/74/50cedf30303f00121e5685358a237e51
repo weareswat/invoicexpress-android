@@ -1,0 +1,7 @@
+package pt.rupeal.invoicexpress.fragments;
+
+import Fragment;
+
+public class ContactDetailsFragment extends Fragment {
+
+}

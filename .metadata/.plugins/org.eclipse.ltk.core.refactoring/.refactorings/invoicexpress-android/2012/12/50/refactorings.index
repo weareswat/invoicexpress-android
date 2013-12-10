@@ -1,0 +1,27 @@
+1355188242164	Delete element
+1355261502248	Rename resource '1_navigation_next_item.png'
+1355261558154	Delete element
+1355323631582	Rename method 'getState'
+1355410070325	Rename resource 'documents_button.xml'
+1355410261921	Rename type 'GetDocumentsActivity'
+1355411308327	Rename type 'DocumentsFragment'
+1355415831728	Rename enum constant 'INVOICES'
+1355415835278	Rename enum constant 'SIMPLE_INVOICES'
+1355416087633	Rename resource 'documents.xml'
+1355432418821	Rename type 'DemoCollectionPagerAdapter'
+1355432438782	Rename type 'DemoObjectFragment'
+1355433441168	Rename type 'DocumentTypeFragment'
+1355433640313	Rename type 'DocumentListRowAdapter'
+1355433720412	Rename local variable 'documentTypeFragment'
+1355433731168	Rename field 'docFragment'
+1355434653695	Rename type 'ContactDetailsFragment'
+1355435042250	Delete element
+1355436847304	Rename resource 'link.xml'
+1355436902024	Rename resource 'link_2Labels.xml'
+1355436995941	Rename type 'LinkLayout'
+1355437180225	Rename field 'linkView'
+1355576467535	Copy file
+1355580182498	Rename type 'GetAccountDetails'
+1355601796246	Delete element
+1355657631131	Rename method 'setOnClickListener'
+1355681621340	Rename resource 'pressed_contacts_list_name.xml'

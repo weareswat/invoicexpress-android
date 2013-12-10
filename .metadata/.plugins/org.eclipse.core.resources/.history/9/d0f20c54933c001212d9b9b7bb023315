@@ -1,0 +1,11 @@
+package pt.rupeal.invoicexpress.enums;
+
+public enum DocumentTypeEnum {
+
+	CHASH,
+	CLAIM_CHECK,
+	CREDIT,
+	DEBIT,
+	INVOICES
+	
+}

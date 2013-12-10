@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout 
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+ 	android:layout_height="60dp"     	
+ 	android:layout_marginLeft="18dp"
+ 	android:layout_marginRight="18dp"
+>
+
+	<TextView
+	    android:id="@+id/details_value"
+		android:layout_width="wrap_content"
+   		android:layout_height="wrap_content"
+   		android:layout_marginTop="8dp"
+   		android:layout_marginLeft="6dp"
+   		android:textColor="@color/details_text"
+		android:textSize="18sp"   
+	/>
+	
+	<!-- TextView PHONE -->
+	<TextView 
+		android:layout_width="wrap_content"
+   		android:layout_height="wrap_content"
+   		android:layout_marginLeft="6dp"
+   		android:text="@string/contact_details_phone1"
+   		android:textSize="11sp"    		
+   		android:layout_below="@id/contact_details_preferencial_phone" 
+   	/>
+	
+	<ImageView
+	    android:id="@+id/contact_details_preferencial_phone_access"
+	    android:contentDescription="@string/contact_details_ic_phone_access_description"
+   		android:layout_width="wrap_content"
+   		android:layout_height="wrap_content"
+   		android:layout_marginTop="8dp"
+	    android:layout_alignParentRight="true"
+	    android:src="@drawable/ic_device_access_call"
+   		android:layout_centerVertical="true"
+	/>
+	
+	<View
+	    android:id="@+id/contact_details_preferencial_vertical_line_1" 
+   		android:layout_width="1dp"
+   		android:layout_height="22dp"
+   		android:layout_marginTop="10dp"
+   		android:layout_marginRight="8dp"
+   		android:layout_toLeftOf="@id/contact_details_preferencial_phone_access"
+   		android:background="@color/line_seperator"
+   		android:layout_centerVertical="true"
+	/>
+		
+</RelativeLayout>

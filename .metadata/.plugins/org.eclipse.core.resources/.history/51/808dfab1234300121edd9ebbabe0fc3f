@@ -1,0 +1,21 @@
+package pt.rupeal.invoicexpress.dtos;
+
+public class ContactDTO {
+
+	private String name;
+	private boolean isFirst;
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public boolean isFirst() {
+		return isFirst;
+	}
+	public void setFirst(boolean isFirst) {
+		this.isFirst = isFirst;
+	}
+	
+}

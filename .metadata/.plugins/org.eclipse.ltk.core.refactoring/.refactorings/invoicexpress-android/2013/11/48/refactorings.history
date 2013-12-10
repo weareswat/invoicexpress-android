@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename method &apos;pt.rupeal.invoicexpress.activities.AuthenticationActivity.lowerThanHdpi()&apos; to &apos;isLowerThanHdpi&apos;&#x0D;&#x0A;- Original project: &apos;invoicexpress-android&apos;&#x0D;&#x0A;- Original element: &apos;pt.rupeal.invoicexpress.activities.AuthenticationActivity.lowerThanHdpi()&apos;&#x0D;&#x0A;- Renamed element: &apos;pt.rupeal.invoicexpress.activities.AuthenticationActivity.isLowerThanHdpi()&apos;&#x0D;&#x0A;- Update references to refactored element" delegate="false" deprecate="false" description="Rename method &apos;lowerThanHdpi&apos;" flags="589826" id="org.eclipse.jdt.ui.rename.method" input="/src&lt;pt.rupeal.invoicexpress.activities{AuthenticationActivity.java[AuthenticationActivity~lowerThanHdpi" name="isLowerThanHdpi" references="true" stamp="1385512482780" version="1.0"/>
+</session>

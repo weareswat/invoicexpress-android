@@ -1,0 +1,18 @@
+package pt.rupeal.invoicexpress;
+
+import pt.rupeal.invoicexpress.activities.ActionBarActivity;
+import pt.rupeal.invoicexpress.fragments.ContactsFragment;
+import pt.rupeal.invoicexpress.fragments.DashBoardFragment;
+import pt.rupeal.invoicexpress.fragments.DocumentsFragment;
+import pt.rupeal.invoicexpress.widgets.ActionBarSingleton;
+import pt.rupeal.invoicexpress.widgets.TabListener;
+import android.os.Bundle;
+import android.app.ActionBar;
+import android.app.ActionBar.Tab;
+import android.app.Activity;
+import android.view.Menu;
+import android.view.MenuItem;
+
+public class MainActivity extends ActionBarActivity {
+    
+}

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dialogProgressBar_Layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:visibility="visible"
+    android:clickable="false"
+     >
+    <!-- android:background="@color/background" -->
+
+    <ProgressBar
+        android:id="@+id/dialogProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:indeterminate="true"
+        android:indeterminateOnly="true"
+        style="?android:attr/progressBarStyle"
+        android:indeterminateBehavior="cycle"
+        android:clickable="false"
+        android:keepScreenOn="true"
+	/>
+    
+</RelativeLayout>

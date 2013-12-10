@@ -1,0 +1,119 @@
+1353717704611	Rename type 'InvoiceFragment'
+1353717919359	Extract local variable 'tabListener'
+1353721796594	Delete element
+1353723152436	Rename resource 'contactsListFragment.xml'
+1353724376162	Delete element
+1353751454964	Rename resource 'Barra_Contactos.png'
+1353751459602	Copy file
+1353751461099	Copy file
+1353751462791	Copy file
+1353752069860	Move file
+1353752153699	Copy folder
+1353752156370	Copy folder
+1353752157894	Copy folder
+1353752160945	Delete element
+1353752163292	Delete element
+1353752165288	Delete element
+1353752312860	Copy file
+1353752315798	Delete element
+1353752318461	Copy file
+1353752319853	Copy file
+1353752321440	Copy file
+1353752324030	Delete element
+1353752326621	Delete element
+1353752328709	Delete element
+1353753891531	Delete element
+1353753925901	Delete element
+1353753928820	Delete element
+1353753957747	Delete element
+1353753963181	Copy files
+1353753964903	Copy files
+1353753966678	Copy files
+1353767856481	Move file
+1353767876963	Delete element
+1353767883046	Rename resource 'action_bar_menu.xml'
+1353770296258	Delete element
+1353771899501	Rename resource 'contacts_list_fragment.xml'
+1353771915061	Delete element
+1353776026178	Delete element
+1353776048015	Rename resource 'contact_list_row.xml'
+1353776618170	Rename resource 'contactsTabIconSelected.png'
+1353776623102	Copy file
+1353776624239	Copy file
+1353776625656	Copy file
+1353778174994	Rename field 'SHOW_MENUS_AS_NAVIGATION_BAR'
+1353778437034	Delete element
+1353785402145	Rename local variable 'fillMaps'
+1353788915536	Rename resource 'search_background.png'
+1353788971632	Copy file
+1353788972906	Copy file
+1353788974243	Copy file
+1353789770704	Rename resource 'contacts_search_background.png'
+1353789962799	Delete element
+1353789970213	Delete elements
+1353789973720	Copy files
+1353789979413	Delete elements
+1353789981434	Delete element
+1353789985206	Delete elements
+1353789987859	Copy files
+1353789991737	Copy files
+1353793316736	Rename resource 'application_barImage.png'
+1353793320148	Copy file
+1353793321633	Copy file
+1353793322970	Copy file
+1353794070809	Copy file
+1353794073758	Delete element
+1353795202235	Copy file
+1353795843393	Copy file
+1353797427610	Delete element
+1353801968946	Copy file
+1353801970019	Copy file
+1353801971293	Copy file
+1353803213048	Rename resource 'invoices_row.xml'
+1353804657599	Rename resource 'documents_icon_cashInvoices.png'
+1353804662795	Rename resource 'documents_icon_creditNotes.png'
+1353804667879	Rename resource 'documents_icon_debitNotes.png'
+1353804895526	Rename local variable 'money'
+1353805705529	Rename local variable 'objectsMap'
+1353805724106	Rename field 'objects'
+1353805742709	Rename field 'documentsType'
+1353805752116	Rename local variable 'documentsType'
+1353805762449	Rename method 'getDocumentsType'
+1353805778922	Rename local variable 'documentsTypeHash'
+1353807164286	Rename local variable 'documentName'
+1353807181346	Rename local variable 'desription'
+1353809487682	Copy file
+1353809842058	Rename local variable 'contactsMenu'
+1353810125111	Delete element
+1353810145176	Rename resource 'documentsTabIconSelected.png'
+1353810427420	Rename type 'InvoicesActivity'
+1353810442122	Rename field 'INVOICES_MENU'
+1353851249343	Rename resource 'invoice_row.xml'
+1353852714765	Rename resource 'contacts_row_background_hover.png'
+1353852747764	Delete element
+1353852764456	Copy file
+1353852767914	Delete element
+1353852773906	Copy file
+1353852776568	Delete element
+1353852781534	Copy file
+1353852784566	Delete element
+1353852837386	Rename type 'InvoiceRowAdapter'
+1353852859546	Rename type 'InvoicesFragment'
+1353854330569	Delete element
+1353874639632	Rename resource 'contact_details_personal_info.xml'
+1353877626434	Rename compilation unit 'ContactPersonalInfoAdaptar.java'
+1353877890227	Rename local variable 'invoiceRow'
+1353877912194	Rename local variable 'invoiceRow'
+1353878008266	Rename local variable 'contactDetail'
+1353878021794	Rename local variable 'contactDetaiViewl'
+1353878044252	Rename local variable 'documentRow'
+1353878078086	Rename local variable 'documentTypeView'
+1353878108656	Rename local variable 'contactDetailView'
+1353882504644	Rename field 'contactTitle'
+1353882510498	Rename field 'contactValue'
+1353882517989	Rename local variable 'contactTitleId'
+1353882523466	Rename local variable 'contactValue'
+1353882707006	Rename local variable 'contactValue'
+1353882711011	Rename local variable 'contactTitle'
+1353882979000	Rename local variable 'personalInfo'
+1353884677139	Rename field 'webInfo'

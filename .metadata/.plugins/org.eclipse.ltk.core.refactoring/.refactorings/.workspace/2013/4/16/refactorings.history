@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;invoiceXpress&apos; to &apos;invoicexpress-android&apos;" description="Rename resource &apos;invoiceXpress&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="/invoiceXpress" name="invoicexpress-android" stamp="1366238504901" updateReferences="true"/>
+</session>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename local variable &apos;borderPaint&apos; in &apos;pt.rupeal.invoicexpress.charts.PieChartInvoiceXpress.getBorderPaint()&apos; to &apos;paint&apos;&#x0D;&#x0A;- Original project: &apos;invoicexpress-android&apos;&#x0D;&#x0A;- Original element: &apos;pt.rupeal.invoicexpress.charts.PieChartInvoiceXpress.getBorderPaint().borderPaint&apos;&#x0D;&#x0A;- Renamed element: &apos;borderPaint&apos;&#x0D;&#x0A;- Update references to refactored element" description="Rename local variable &apos;borderPaint&apos;" id="org.eclipse.jdt.ui.rename.local.variable" input="/src&lt;pt.rupeal.invoicexpress.charts{PieChartInvoiceXpress.java[PieChartInvoiceXpress~getBorderPaint@borderPaint!9277!9308!9283!9293!QPaint;!0!false" name="paint" references="true" stamp="1366885597756" version="1.0"/>
+</session>

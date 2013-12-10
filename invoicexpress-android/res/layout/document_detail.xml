@@ -1,0 +1,503 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://pt.rupeal.invoicexpress.layouts"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:scrollbars="vertical"
+    android:background="@color/background"
+    android:overScrollMode="never"
+>
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical"
+	>  
+	
+		<View
+	        android:id="@+id/about_line_top"
+	    	android:layout_width="match_parent"
+	    	android:layout_height="1dp"
+	    	android:background="@color/actionBar_tabBar_lighter_line"
+		/>
+    
+	    <View 
+	        android:id="@+id/about_line_bottom"
+	    	android:layout_width="match_parent"
+	    	android:layout_height="1dp"
+	    	android:background="@color/actionBar_tabBar_darker_line"    
+		/>
+		
+		<RelativeLayout 
+	        android:layout_width="match_parent"
+	    	android:layout_height="86dp"
+	    	android:background="@color/button_background"
+		>
+		
+			<View
+			    android:id="@+id/doc_details_title_line1_top" 
+		    	android:layout_width="wrap_content"
+		    	android:layout_height="1dp"
+		    	android:layout_marginTop="18dp"
+		    	android:layout_marginLeft="18dp"
+		    	android:layout_marginRight="18dp"
+		    	android:background="@color/line_seperator_top"
+			/>
+			
+			<View
+			    android:id="@+id/doc_details_title_line1_bottom" 
+		    	android:layout_width="wrap_content"
+		    	android:layout_height="1dp"
+		    	android:layout_marginLeft="18dp"
+		    	android:layout_marginRight="18dp"
+				android:layout_below="@id/doc_details_title_line1_top"
+		    	android:background="@color/line_seperator_bottom"
+			/>			
+		    
+			<ImageView 
+			    android:id="@+id/doc_details_image_title"
+			    android:contentDescription="@string/details_image_description"
+		    	android:layout_width="wrap_content"
+		    	android:layout_height="wrap_content"			    
+			    android:layout_alignParentLeft="true"
+			    android:layout_marginLeft="28dp"
+			    android:layout_centerVertical="true"
+			/>
+			
+		    <TextView
+		        android:id="@+id/doc_details_status"
+		        android:layout_width="wrap_content"
+		    	android:layout_height="wrap_content"
+		    	android:layout_marginLeft="6dp"
+		    	android:layout_centerVertical="true"
+			    android:layout_toRightOf="@id/doc_details_image_title"
+		    	android:textColor="@color/sub_titles_text"
+		    	android:textSize="18sp"
+			/>
+				
+			    <!--android:layout_centerVertical="true"
+		    	android:layout_centerVertical="true" -->
+		    
+			<View 
+			    android:id="@+id/doc_details_title_bottom" 
+			    android:layout_width="wrap_content"
+		    	android:layout_height="1dp"
+		    	android:layout_alignParentBottom="true" 
+		    />	
+		    				    
+			<View
+			    android:id="@+id/doc_details_title_line2_bottom" 
+		    	android:layout_width="wrap_content"
+		    	android:layout_height="1dp"
+		    	android:layout_marginLeft="18dp"
+		    	android:layout_marginRight="18dp"
+		    	android:layout_marginBottom="17dp"
+				android:layout_above="@id/doc_details_title_bottom"
+		    	android:background="@color/line_seperator_bottom"
+			/>
+			
+			<View
+			    android:id="@+id/doc_details_title_line2_top"
+		    	android:layout_width="wrap_content"
+		    	android:layout_height="1dp"
+		    	android:layout_marginLeft="18dp"
+		    	android:layout_marginRight="18dp"		    	    
+		    	android:layout_above="@id/doc_details_title_line2_bottom"
+		    	android:background="@color/line_seperator_top"
+			/>	
+	    
+		</RelativeLayout>
+		
+		<RelativeLayout
+		    android:id="@+id/doc_details_name_layout" 
+			android:layout_width="match_parent"
+	    	android:layout_height="wrap_content"
+	    	android:layout_marginTop="12dp"
+	    	android:layout_marginBottom="10dp"
+		    android:layout_marginLeft="18dp"
+		    android:layout_marginRight="18dp"	    	
+		>
+			    
+		    <pt.rupeal.invoicexpress.widgets.TextViewInvoiceXpress
+		        android:id="@+id/doc_details_name" 
+		        android:layout_width="wrap_content"
+		    	android:layout_height="wrap_content"
+		    	android:layout_centerVertical="true"
+		    	android:layout_marginLeft="12dp"
+		    	android:layout_marginTop="4dp"
+		    	android:textColor="@color/details_text"
+		    	android:textSize="18sp"
+			/>
+		    
+			<ImageView
+			    android:id="@+id/doc_details_image_link_name"
+			    android:contentDescription="@string/details_image_description"
+		   		android:layout_width="wrap_content"
+		   		android:layout_height="wrap_content"
+			    android:layout_alignParentRight="true"
+			    android:layout_centerVertical="true"
+		   		android:src="@drawable/navigation_next_item"
+			/>
+			
+			<View
+			    android:id="@+id/doc_details_vertical_line_link_name"
+		   		android:layout_width="1dp"
+		   		android:layout_height="22dp"
+		   		android:layout_marginRight="8dp"
+		   		android:layout_toLeftOf="@id/doc_details_image_link_name"
+		   		android:background="@color/line_seperator"
+		   		android:layout_centerVertical="true"
+			/>		    
+		    
+			<View 
+		    	android:layout_width="match_parent"
+		    	android:layout_height="1dp"
+			    android:layout_marginTop="16dp"	    	    
+		    	android:layout_below="@+id/doc_details_name"
+		    	android:background="@color/line_seperator"
+		    	
+			/>
+
+		</RelativeLayout>
+		
+	    <RelativeLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:paddingTop="30dp"
+	        android:paddingBottom="36dp"
+	        android:paddingLeft="24dp"
+	        android:paddingRight="24dp"  >
+
+	        <TextView
+	            android:id="@+id/doc_details_sequenceNumber_label"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:gravity="center_vertical"
+	            android:text="@string/doc_details_sequenceNumber_label"
+	            android:textColor="@color/details_text_2"
+	            android:textSize="13sp" />
+	        
+	        <TextView
+	            android:id="@+id/doc_details_sequenceNumber_value"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_toRightOf="@id/doc_details_sequenceNumber_label"
+	            android:layout_marginLeft="2dp"
+	            android:gravity="center_vertical"
+	            android:textColor="@color/details_text_2"
+	            android:textSize="13sp" />	        
+
+	        <TextView
+	            android:id="@+id/doc_details_date_label"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_below="@id/doc_details_sequenceNumber_label"
+	            android:gravity="center_vertical"
+	            android:text="@string/doc_details_date_label"
+	            android:textSize="13sp"
+	            android:textColor="@color/details_text" />
+	        
+	        <TextView
+	            android:id="@+id/doc_details_date_value"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_below="@id/doc_details_sequenceNumber_label"
+	            android:layout_toRightOf="@id/doc_details_date_label"
+	            android:layout_marginLeft="2dp"
+	            android:gravity="center_vertical"
+	            android:textSize="13sp"
+	            android:textColor="@color/details_text" />	        
+
+	        <TextView
+	            android:id="@+id/doc_details_dueDate_label"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_below="@+id/doc_details_date_label"
+	            android:gravity="center_vertical"
+	            android:text="@string/doc_details_dueDate_label"
+	            android:textSize="13sp"
+	            android:textColor="@color/details_text"
+	        />
+	        
+	        <TextView
+	            android:id="@+id/doc_details_dueDate_value"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_below="@+id/doc_details_date_label"
+	            android:layout_toRightOf="@id/doc_details_dueDate_label"
+	            android:layout_marginLeft="2dp"
+	            android:gravity="center_vertical"
+	            android:textSize="13sp"
+	            android:textColor="@color/details_text"
+	        />	        
+	        
+	    </RelativeLayout>
+	    
+	    <pt.rupeal.invoicexpress.layouts.SubTitleLayout
+	        android:id="@+id/doc_details_items_subtitle"
+			android:layout_width="match_parent"
+	    	android:layout_height="wrap_content"
+	    	android:layout_marginBottom="2dp"
+	    />
+	    
+	    <LinearLayout 
+	        android:id="@+id/doc_details_items"
+			android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+    		android:layout_marginLeft="18dp"
+    		android:layout_marginRight="18dp"		        
+	        android:orientation="vertical"
+		/>	    
+	    
+	    <pt.rupeal.invoicexpress.layouts.SubTitleLayout
+	        android:id="@+id/doc_details_values_subtitle"
+			android:layout_width="match_parent"
+	    	android:layout_height="wrap_content"
+	    	android:layout_marginTop="38dp"
+	    	android:layout_marginBottom="8dp"
+	    />	
+	    
+	    <RelativeLayout
+		    android:id="@+id/doc_details_values"
+			android:layout_width="wrap_content"
+		 	android:layout_height="wrap_content"     	
+		 	android:layout_marginLeft="24dp"
+		 	android:layout_marginRight="24dp"
+		 	android:layout_marginBottom="12dp"
+		 	
+		>
+
+	        <TextView 
+	            android:id="@+id/doc_details_sum_label"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:textColor="@color/details_text"
+	            android:text="@string/doc_details_values_sum"
+	            android:paddingTop="6dp"
+	            android:paddingBottom="6dp"
+				android:layout_alignParentLeft="true"
+					            
+	        />
+	        
+	        <TextView 
+	            android:id="@+id/doc_details_sum_value"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:textColor="@color/details_text"
+	            android:paddingTop="6dp"
+	            android:paddingBottom="6dp"
+	            android:layout_alignParentRight="true"
+	            
+			/>
+	        
+	        <TextView 
+	            android:id="@+id/doc_details_discount_label"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+				android:layout_alignParentLeft="true"
+				android:layout_below="@id/doc_details_sum_label"
+				android:text="@string/doc_details_values_discount"            
+	            android:textColor="@color/details_text"
+	            android:paddingTop="6dp"
+	            android:paddingBottom="6dp"
+	            
+	            />
+	        
+	        <TextView 
+	            android:id="@+id/doc_details_discount_value"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_alignParentRight="true"	            
+				android:layout_below="@id/doc_details_sum_value"
+	            android:textColor="@color/details_text"
+	            android:paddingTop="6dp"
+	            android:paddingBottom="6dp"
+					            
+	            />
+	        
+	        <TextView 
+	            android:id="@+id/doc_details_beforeTaxes_label"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:text="@string/doc_details_values_before_taxes"
+	            android:textColor="@color/details_text"
+	            android:paddingTop="6dp"
+	            android:paddingBottom="6dp"
+				android:layout_alignParentLeft="true"
+				android:layout_below="@id/doc_details_discount_label"
+									            
+	            
+	            />
+	        
+	        <TextView 
+	            android:id="@+id/doc_details_beforeTaxes_value"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:textColor="@color/details_text"
+	            android:paddingTop="6dp"
+	            android:paddingBottom="6dp"
+	            android:layout_alignParentRight="true"
+				android:layout_below="@id/doc_details_discount_value"
+	            	            
+	            />
+	        
+	        <TextView 
+	            android:id="@+id/doc_details_taxes_label"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+				android:text="@string/doc_details_values_taxes"	            
+	            android:textColor="@color/details_text"
+	            android:paddingTop="6dp"
+	            android:paddingBottom="6dp"
+				android:layout_alignParentLeft="true"
+				android:layout_below="@id/doc_details_beforeTaxes_label"					            
+	            
+	            />
+	        
+	        <TextView 
+	            android:id="@+id/doc_details_taxes_value"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:textColor="@color/details_text"
+	            android:paddingTop="6dp"
+	            android:paddingBottom="6dp"
+	            android:layout_alignParentRight="true"
+				android:layout_below="@id/doc_details_beforeTaxes_value"
+					            	            
+	            />
+	        
+	    </RelativeLayout>
+    
+	    <View 
+	    	android:layout_width="match_parent"
+	    	android:layout_height="1dp"
+	  		android:layout_marginLeft="18dp"
+	  		android:layout_marginRight="18dp"      	    
+	    	android:background="@color/line_seperator"
+		/>
+	    
+		<RelativeLayout
+			android:layout_width="wrap_content"
+		 	android:layout_height="wrap_content"     	
+		 	android:layout_marginLeft="24dp"
+		 	android:layout_marginRight="24dp"
+		 	android:layout_marginTop="12dp"
+		 	android:layout_marginBottom="18dp"
+		 >
+		
+			<TextView
+				android:layout_width="wrap_content"
+		    	android:layout_height="wrap_content"
+		    	android:layout_alignParentLeft="true" 
+		    	android:text="@string/item_details_total"
+		    	android:textColor="@color/details_text"
+			/>
+			
+			<TextView
+			    android:id="@+id/doc_details_total_value" 
+				android:layout_width="wrap_content"
+		    	android:layout_height="wrap_content"
+		    	android:layout_alignParentRight="true" 
+		    	android:textColor="@color/details_text"
+		   	/>		    
+		    
+		</RelativeLayout>
+	    
+	    <View 
+	    	android:layout_width="match_parent"
+	    	android:layout_height="1dp"
+	  		android:layout_marginLeft="18dp"
+	  		android:layout_marginRight="18dp"
+	    	android:layout_marginBottom="20dp"
+	    	android:background="@color/line_seperator"
+		/>		
+		
+		<pt.rupeal.invoicexpress.layouts.SubTitleLayout
+	        android:id="@+id/doc_details_notes_label"
+			android:layout_width="match_parent"
+	    	android:layout_height="wrap_content"
+	    	android:layout_marginTop="5dp"
+	    	android:layout_marginBottom="8dp"
+	    />
+		
+		<TextView 
+	        android:id="@+id/doc_details_notes"
+			android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_marginLeft="24dp"
+		 	android:textSize="11sp"
+		 	android:textColor="@color/details_text"
+		 	android:layout_marginRight="24dp"
+		/>
+		
+		<pt.rupeal.invoicexpress.layouts.SubTitleLayout
+		        android:id="@+id/doc_details_payment_label"
+				android:layout_width="match_parent"
+		    	android:layout_height="wrap_content"
+		    	android:layout_marginBottom="10dp"
+		    	android:layout_marginTop="38dp"
+		    	android:textColor="@color/details_text" 
+		/>
+		
+		<RelativeLayout
+		    android:id="@+id/doc_detail_atm_layout"
+		   	android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:paddingLeft="24dp"
+	        android:paddingRight="24dp" >
+			
+			<ImageView
+				android:id="@+id/doc_detail_atm"
+				android:contentDescription="@string/image_description"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_alignParentLeft="true"
+	            android:layout_alignParentTop="true"
+	            android:src="@drawable/multibanco"
+	            android:paddingRight="20dp"
+	            android:paddingTop="3dp"  />
+			
+			<RelativeLayout 
+				android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:layout_toRightOf="@+id/doc_detail_atm" >
+		        
+			   	<TextView
+		            android:id="@+id/doc_details_invEnt"
+		            android:layout_width="match_parent"
+		            android:layout_height="wrap_content"
+		            android:layout_alignParentLeft="true"
+		            android:layout_alignParentTop="true"
+		            android:gravity="center_vertical"
+		            android:textSize="14sp" />
+	
+		        <TextView
+		            android:id="@+id/doc_details_invRef"
+		            android:layout_width="match_parent"
+		            android:layout_height="wrap_content"
+		            android:layout_below="@id/doc_details_invEnt"
+		            android:gravity="center_vertical"
+		            android:textSize="14sp" />
+	
+		        <TextView
+		            android:id="@+id/doc_details_invMon"
+		            android:layout_width="match_parent"
+		            android:layout_height="wrap_content"
+		            android:layout_alignParentLeft="true"
+		            android:layout_below="@+id/doc_details_invRef"
+		            android:gravity="center_vertical"
+		            android:textSize="14sp" />
+			    
+			</RelativeLayout>
+
+		</RelativeLayout>
+		
+		<View 
+			android:layout_width="match_parent"
+		    android:layout_height="35dp"
+		/>
+
+	</LinearLayout>
+    
+</ScrollView>

@@ -1,0 +1,20 @@
+package pt.rupeal.invoicexpress.widgets;
+
+import android.content.Context;
+import android.graphics.Canvas;
+import android.view.View;
+
+public class SubTitleView extends View {
+
+	public SubTitleView(Context context) {
+		super(context);
+	}
+
+	@Override
+	protected void onDraw(Canvas canvas) {
+		// TODO Auto-generated method stub
+		super.onDraw(canvas);
+		
+	}
+	
+}

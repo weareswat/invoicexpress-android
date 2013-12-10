@@ -1,0 +1,192 @@
+package pt.rupeal.invoicexpress.charts;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.NodeList;
+
+import pt.rupeal.invoicexpress.MainActivity;
+import pt.rupeal.invoicexpress.R;
+import pt.rupeal.invoicexpress.model.QuarterChartModel;
+import pt.rupeal.invoicexpress.server.InvoiceXpress;
+import pt.rupeal.invoicexpress.server.InvoiceXpressParser;
+import pt.rupeal.invoicexpress.utils.InvoiceXpressException;
+import pt.rupeal.invoicexpress.utils.ScreenLayoutUtil;
+import pt.rupeal.invoicexpress.utils.StringUtil;
+import android.content.Context;
+import android.graphics.Paint;
+import android.util.Log;
+import android.util.TypedValue;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TableLayout;
+import android.widget.TextView;
+
+public class QuarterlyChart {
+		
+	public View getView(Context context, View quarteryBoardView, List<QuarterChartModel> quartersChartData) {
+		
+		if(QuarterChartModel.isNoChart(quartersChartData)) {
+			setGeneratedDataQuaterlyChart(quartersChartData);
+		}
+		
+		MainActivity activity = (MainActivity) context;
+
+		int heightScreen = InvoiceXpress.getInstance().getScreenHeight(activity);
+		int widthScreen = InvoiceXpress.getInstance().getScreenWidth(activity);
+		
+		// get table layout margins
+		TableLayout tableLayout = (TableLayout) quarteryBoardView.findViewById(R.id.dashboard_quarterly_table_layout);
+		int margin = ((ViewGroup.MarginLayoutParams) tableLayout.getLayoutParams()).leftMargin;
+		margin += ((ViewGroup.MarginLayoutParams) tableLayout.getLayoutParams()).rightMargin;
+		margin += ScreenLayoutUtil.convertDpToPixels(context, 10);
+		
+		int tableLayoutWidth = widthScreen - margin;
+		float columnWidth = (float) (tableLayoutWidth * 0.28);
+
+		// Title
+		String title = ((TextView) quarteryBoardView.findViewById(R.id.dashboard_quarterly_title)).getText().toString();
+		((TextView) quarteryBoardView.findViewById(R.id.dashboard_quarterly_title)).setText(title 
+				+ " "
+				+ InvoiceXpress.getInstance().getActiveAccountDetails().getCurrencySymbol());
+		
+		((ViewGroup.MarginLayoutParams) quarteryBoardView.findViewById(R.id.dashboard_quarterly_row_0)
+				.getLayoutParams()).bottomMargin = ScreenLayoutUtil.isLowerThanHdpi(context) ? 0 : 
+					Math.round(ScreenLayoutUtil.convertDpToPixels(context, 14));
+		
+		setTextView(context, (TextView) quarteryBoardView.findViewById(R.id.dashboard_quarterly_first_invoicing), 
+				quartersChartData.get(0).getInvoicing(), columnWidth);
+		setTextView(context, (TextView) quarteryBoardView.findViewById(R.id.dashboard_quarterly_first_vat), 
+				quartersChartData.get(0).getTaxes(), columnWidth);
+		setTextView(context, (TextView) quarteryBoardView.findViewById(R.id.dashboard_quarterly_first_yoy), 
+				quartersChartData.get(0).getYtd(), columnWidth);		
+
+		setTextView(context, (TextView) quarteryBoardView.findViewById(R.id.dashboard_quarterly_second_invoicing), 
+				quartersChartData.get(1).getInvoicing(), columnWidth);
+		setTextView(context, (TextView) quarteryBoardView.findViewById(R.id.dashboard_quarterly_second_vat), 
+				quartersChartData.get(1).getTaxes(), columnWidth);
+		setTextView(context, (TextView) quarteryBoardView.findViewById(R.id.dashboard_quarterly_second_yoy), 
+				quartersChartData.get(1).getYtd(), columnWidth);		
+
+		setTextView(context, (TextView) quarteryBoardView.findViewById(R.id.dashboard_quarterly_third_invoicing), 
+				quartersChartData.get(2).getInvoicing(), columnWidth);
+		setTextView(context, (TextView) quarteryBoardView.findViewById(R.id.dashboard_quarterly_third_vat), 
+				quartersChartData.get(2).getTaxes(), columnWidth);
+		setTextView(context, (TextView) quarteryBoardView.findViewById(R.id.dashboard_quarterly_third_yoy), 
+				quartersChartData.get(2).getYtd(), columnWidth);
+		
+		setTextView(context, (TextView) quarteryBoardView.findViewById(R.id.dashboard_quarterly_forth_invoicing), 
+				quartersChartData.get(3).getInvoicing(), columnWidth);
+		setTextView(context, (TextView) quarteryBoardView.findViewById(R.id.dashboard_quarterly_forth_vat), 
+				quartersChartData.get(3).getTaxes(), columnWidth);
+		setTextView(context, (TextView) quarteryBoardView.findViewById(R.id.dashboard_quarterly_forth_yoy), 
+				quartersChartData.get(3).getYtd(), columnWidth);		
+		 
+		((LinearLayout) quarteryBoardView.findViewById(R.id.dashboard_quarterly_legend_title_layout)).getLayoutParams().height = heightScreen / 16;
+		 
+		 return quarteryBoardView;
+	}
+	
+	private void setTextView(Context context, TextView textView, String value, float columnWidth) {
+		
+		Paint paint = new Paint();
+		float textSize = textView.getTextSize();
+		paint.setTextSize(textSize);
+		
+		float textWidth = paint.measureText(value);
+		while(columnWidth < textWidth) {
+			paint.setTextSize(textSize--);
+			textWidth = paint.measureText(value);
+		}
+		
+		textView.setTextSize(TypedValue.COMPLEX_UNIT_PX , textSize);
+		textView.setText(value);
+	}
+	
+	/**
+	 * Example: https://screen-name.invoicexpress.net/api/charts/quarterly-results.xml
+	 * @return
+	 */
+	public static String buildRequestHttpGet() { 
+		StringBuffer request = new StringBuffer(InvoiceXpress.getInstance().getActiveAccount().getUrl());
+		request.append("/api/charts/quarterly-results.xml");
+		request.append("?api_key=" + InvoiceXpress.getInstance().getActiveAccount().getApiKey());
+		
+		if(InvoiceXpress.DEBUG) {
+			Log.d(QuarterlyChart.class.getCanonicalName(), request.toString());
+		}
+		
+		return request.toString();
+	}
+	
+	public static List<QuarterChartModel> getChart(Context context, String xml) throws InvoiceXpressException {
+		
+		List<QuarterChartModel> quarters = new ArrayList<QuarterChartModel>();
+		
+		InvoiceXpressParser parser = new InvoiceXpressParser(context);
+		Document documentDomElement = parser.getDomElement(xml);
+		
+		NodeList nodeList = documentDomElement.getElementsByTagName("quarter-01");
+		Element elem = (Element) nodeList.item(0);
+		QuarterChartModel quarter = new QuarterChartModel();
+		quarter.setInvoicing(StringUtil.convertToQuarterlyValue(parser.getValue(elem, "invoicing")));
+		quarter.setTaxes(StringUtil.convertToQuarterlyValue(parser.getValue(elem, "taxes")));
+		quarter.setYtd(StringUtil.convertToQuarterlyValue(parser.getValue(elem, "ytd")));
+		quarter.setSample(false);
+		quarters.add(quarter);
+		
+		nodeList = documentDomElement.getElementsByTagName("quarter-02");
+		elem = (Element) nodeList.item(0);
+		quarter = new QuarterChartModel();
+		quarter.setInvoicing(StringUtil.convertToQuarterlyValue(parser.getValue(elem, "invoicing")));
+		quarter.setTaxes(StringUtil.convertToQuarterlyValue(parser.getValue(elem, "taxes")));
+		quarter.setYtd(StringUtil.convertToQuarterlyValue(parser.getValue(elem, "ytd")));
+		quarter.setSample(false);
+		quarters.add(quarter);
+		
+		nodeList = documentDomElement.getElementsByTagName("quarter-03");
+		elem = (Element) nodeList.item(0);
+		quarter = new QuarterChartModel();
+		quarter.setInvoicing(StringUtil.convertToQuarterlyValue(parser.getValue(elem, "invoicing")));
+		quarter.setTaxes(StringUtil.convertToQuarterlyValue(parser.getValue(elem, "taxes")));
+		quarter.setYtd(StringUtil.convertToQuarterlyValue(parser.getValue(elem, "ytd")));
+		quarter.setSample(false);
+		quarters.add(quarter);		
+		
+		nodeList = documentDomElement.getElementsByTagName("quarter-04");
+		elem = (Element) nodeList.item(0);
+		quarter = new QuarterChartModel();
+		quarter.setInvoicing(StringUtil.convertToQuarterlyValue(parser.getValue(elem, "invoicing")));
+		quarter.setTaxes(StringUtil.convertToQuarterlyValue(parser.getValue(elem, "taxes")));
+		quarter.setYtd(StringUtil.convertToQuarterlyValue(parser.getValue(elem, "ytd")));
+		quarter.setSample(false);
+		quarters.add(quarter);
+		
+		return quarters;
+		
+	}
+	
+	private static void setGeneratedDataQuaterlyChart(List<QuarterChartModel> quarters) {
+		String[][] values = new String[][] {
+					{"1200.10", "320", "100"}, 
+					{"0", "60000.5", "5503.45"}, 
+					{"11213.21", "213.22", "-972"},
+					{"13.33", "1254211.99", "600"}
+				};
+		
+		quarters.clear();
+		
+		for (int index = 0; index < values.length; index++) {
+			QuarterChartModel quarter = new QuarterChartModel();
+			quarter.setInvoicing(StringUtil.convertToQuarterlyValue(values[index][0]));
+			quarter.setTaxes(StringUtil.convertToQuarterlyValue(values[index][1]));
+			quarter.setYtd(StringUtil.convertToQuarterlyValue(values[index][2]));
+			quarter.setSample(true);
+			quarters.add(quarter);
+		}
+		
+	}	
+}

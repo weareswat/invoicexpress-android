@@ -1,0 +1,7 @@
+package pt.rupeal.invoicexpress;
+
+import pt.rupeal.invoicexpress.activities.ActionBarActivity;
+
+public class MainActivity extends ActionBarActivity {
+    
+}

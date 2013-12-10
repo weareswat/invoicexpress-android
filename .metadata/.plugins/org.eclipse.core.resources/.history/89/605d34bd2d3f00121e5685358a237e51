@@ -1,0 +1,25 @@
+package pt.rupeal.invoicexpress.activities;
+
+import pt.rupeal.invoicexpress.MainActivity;
+import pt.rupeal.invoicexpress.R;
+import pt.rupeal.invoicexpress.fragments.ContactsFragment;
+import pt.rupeal.invoicexpress.widgets.ActionBarSingleton;
+import pt.rupeal.invoicexpress.widgets.TabListener;
+import android.app.ActionBar;
+import android.app.ActionBar.Tab;
+import android.app.Activity;
+import android.os.Bundle;
+
+public class GetContactDetailsActivity extends Activity {
+
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.contact_details);
+		
+		ActionBarSingleton singleton = ActionBarSingleton.getInstance();
+		ActionBar actionBar = getActionBar();
+		actionBar = singleton.getActionBar();
+	}
+	
+}

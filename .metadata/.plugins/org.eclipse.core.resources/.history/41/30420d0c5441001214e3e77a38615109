@@ -1,0 +1,44 @@
+package pt.rupeal.invoicexpress.fragments;
+
+import java.util.HashMap;
+
+import pt.rupeal.invoicexpress.R;
+import pt.rupeal.invoicexpress.dtos.ContactDetailsDTO;
+import pt.rupeal.invoicexpress.dtos.ItemDetailsDTO;
+import android.app.Fragment;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+public class ItemDetailsFragment extends Fragment {
+
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+		
+		View view = inflater.inflate(R.layout.contact_details, container, false);
+		
+		ItemDetailsDTO itemDetails = getItemDetails();
+		
+		return view;
+	}
+	
+	private ItemDetailsDTO getItemDetails(){
+		
+		ItemDetailsDTO itemDetails = new ItemDetailsDTO();
+		
+		itemDetails.setName("SmartBox");
+		itemDetails.setDescription("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standart dummy text ever since");
+		
+		HashMap<String, Double> values = new HashMap<String, Double>();
+		values.put("Preço Unitário", 580.00);
+		values.put("Quantidade", 0.00);
+		values.put("Impostos", 580.00);
+		values.put("Descontos", 20.00);
+		
+		return itemDetails;
+		
+	}
+	
+	
+}

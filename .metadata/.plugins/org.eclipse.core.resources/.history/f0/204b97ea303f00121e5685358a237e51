@@ -1,0 +1,36 @@
+package pt.rupeal.invoicexpress.activities;
+
+import pt.rupeal.invoicexpress.MainActivity;
+import pt.rupeal.invoicexpress.R;
+import pt.rupeal.invoicexpress.fragments.ContactDetailsFragment;
+import pt.rupeal.invoicexpress.fragments.ContactsFragment;
+import pt.rupeal.invoicexpress.fragments.DashBoardFragment;
+import pt.rupeal.invoicexpress.fragments.DocumentsFragment;
+import pt.rupeal.invoicexpress.widgets.ActionBarSingleton;
+import pt.rupeal.invoicexpress.widgets.TabListener;
+import android.app.ActionBar;
+import android.app.ActionBar.Tab;
+import android.app.Activity;
+import android.content.Context;
+import android.os.Bundle;
+import android.util.AttributeSet;
+import android.view.View;
+
+public class GetContactDetailsActivity extends MainActivity {
+
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.contact_details);
+		
+        // setup action bar for tabs
+		actionBar.removeTabAt(2);
+		Tab tab = actionBar.newTab()
+        		.setIcon(R.drawable.icon_3)
+        		.setTabListener(new TabListener<ContactDetailsFragment>(
+        				this, "contacts", ContactDetailsFragment.class));
+		
+		actionBar.addTab(tab, 2, true);
+	}
+
+}

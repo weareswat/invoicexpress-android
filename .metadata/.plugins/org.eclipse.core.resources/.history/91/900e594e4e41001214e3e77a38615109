@@ -1,0 +1,5 @@
+package pt.rupeal.invoicexpress.fragments;
+
+public class ItemDetailsFragment {
+
+}

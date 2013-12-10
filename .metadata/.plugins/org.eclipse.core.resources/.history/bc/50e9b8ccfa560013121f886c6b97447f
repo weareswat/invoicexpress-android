@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:orientation="vertical"
+	android:background="@color/background"
+>    
+
+    <ImageView
+        android:id="@+id/login_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="center"
+        android:contentDescription="@string/image_description"
+        android:src="@drawable/bg_login"
+	/>
+    
+    <EditText
+        android:id="@+id/login_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/login_image"
+        android:layout_marginLeft="18dp"
+        android:layout_marginRight="18dp"
+        android:hint="@string/login_email"
+        android:inputType="textEmailAddress"
+        android:singleLine="true" 
+		style="@style/invoicexpress_EditText"
+    />
+        <!-- android:layout_marginTop="60dp" -->
+
+    <EditText
+        android:id="@+id/login_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/login_email"
+        android:layout_marginLeft="18dp"
+        android:layout_marginRight="18dp"
+        android:hint="@string/login_password"
+        android:inputType="textPassword"
+        android:singleLine="true"
+        android:textStyle="normal"
+        android:typeface="normal" 
+        style="@style/invoicexpress_EditText"
+	/>
+        <!-- android:layout_marginTop="10dp" -->
+    
+   	<Button
+        android:id="@+id/login"
+		android:layout_width="match_parent"
+		android:layout_height="70dp"
+		android:layout_marginLeft="18dp"
+		android:layout_marginRight="18dp"
+		android:layout_marginTop="36dp"
+		android:background="@color/button_background"
+		android:text="@string/login"   
+		android:textColor="@color/green_normal"
+		android:layout_below="@id/login_password"
+		      
+    />    
+    
+	<Button
+        android:id="@+id/create_account"
+		android:layout_width="match_parent"
+		android:layout_height="60dp"
+		android:background="@color/button_background"
+		android:text="@string/login_create_aacount"
+		android:textColor="@color/button_text_color"
+		android:textSize="14sp"
+		android:layout_alignParentBottom="true" 
+    />
+	  
+	<View
+	    android:id="@+id/doc_details_title_line1_bottom" 
+    	android:layout_width="wrap_content"
+    	android:layout_height="1dp"
+    	android:layout_above="@id/create_account"
+    	android:background="@color/line_seperator_bottom"
+	/>
+	   	
+	<View
+	    android:id="@+id/doc_details_title_line1_top" 
+    	android:layout_width="wrap_content"
+    	android:layout_height="1dp"
+    	android:layout_above="@id/doc_details_title_line1_bottom"
+    	android:background="@color/line_seperator_top"
+	/>
+   	
+</RelativeLayout>

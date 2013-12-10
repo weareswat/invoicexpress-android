@@ -1,0 +1,151 @@
+package pt.rupeal.invoicexpress.fragments;
+
+import pt.rupeal.invoicexpress.R;
+import pt.rupeal.invoicexpress.adapters.DocumentListRowAdapter;
+import pt.rupeal.invoicexpress.adapters.FragmentPagerAdapter;
+import pt.rupeal.invoicexpress.dtos.DocumentDTO;
+import pt.rupeal.invoicexpress.enums.DocumentStatusEnum;
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.os.Bundle;
+import android.support.v4.view.ViewPager;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ListView;
+import android.widget.TextView;
+
+public class DocumentsFragment extends Fragment {
+    
+//	@Override
+//	public void onCreate(Bundle savedInstanceState) {
+//		super.onCreate(savedInstanceState);
+//		
+//		Intent intent = new Intent(getActivity(), GetDocumentsActivity.class);
+//        getActivity().startActivityFromFragment(this, intent, 0);      
+//	}
+	
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+		View view = inflater.inflate(R.layout.documents_main, container, false);
+		ViewPager mViewPager = (ViewPager) view.findViewById(R.id.pager);
+		
+		DocumentsFragmentPagerAdapter mDemoCollectionPagerAdapter = new DocumentsFragmentPagerAdapter(getFragmentManager());
+		mViewPager.setAdapter(mDemoCollectionPagerAdapter);
+		
+		return view;
+	}
+	
+	// Since this is an object collection, use a FragmentStatePagerAdapter,
+	// and NOT a FragmentPagerAdapter.
+	public class DocumentsFragmentPagerAdapter extends FragmentPagerAdapter {
+	    
+		private final int[] document_types = new int[] {R.string.doc_type_all, R.string.doc_type_cash, R.string.doc_type_credit,
+				R.string.doc_type_debit, R.string.doc_type_invoice, R.string.doc_type_receipt};
+		
+		public DocumentsFragmentPagerAdapter(FragmentManager fm) {
+	        super(fm);
+	    }
+
+	    @Override
+	    public Fragment getItem(int i) {
+	        Fragment fragment = new DocumentTypeFragment();
+	        
+	        Bundle args = new Bundle();
+	        args.putInt(DocumentTypeFragment.DOCUMENT_TYPE, i + 1);
+	        
+	        fragment.setArguments(args);
+	        return fragment;
+	    }
+	    
+	    @Override
+	    public int getCount() {
+	        return document_types.length;
+	    }
+
+	    @Override
+	    public CharSequence getPageTitle(int position) {
+	    	return getResources().getString(document_types[position]);
+	    }
+	}
+
+	// Instances of this class are fragments representing a single
+	// object in our collection.
+	public static class DocumentTypeFragment extends Fragment {
+	    
+		public static final String DOCUMENT_TYPE = "type";
+
+	    @Override
+	    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+	        // The last two arguments ensure LayoutParams are inflated
+	        // properly.
+	        View rootView = inflater.inflate(R.layout.documents_list, container, false);
+	        
+	        // This code is temporary - just to check the textview
+	        Bundle args = getArguments();
+	        TextView textView = (TextView) rootView.findViewById(R.id.document_type);
+	        int documentType = args.getInt(DOCUMENT_TYPE);
+	        textView.setText(Integer.toString(documentType));
+	        
+	        // get list by document type
+	        DocumentDTO[] documents = getDocuments(documentType);
+	        
+	        // get adapter
+	        DocumentListRowAdapter adapter = new DocumentListRowAdapter(inflater.getContext(), documents);
+	        
+	        // Get Documents ListView and set adapter
+	        ListView documentsListView = (ListView) rootView.findViewById(R.id.documents_list);
+	        documentsListView.setAdapter(adapter);
+	        
+	        return rootView;
+	    }
+	    
+	    private DocumentDTO[] getDocuments(int documentType) {
+	    	DocumentDTO[] documents = new DocumentDTO[4];
+
+	    	DocumentDTO document = new DocumentDTO();
+	    	document.setClient("João Ricardo Machado");
+	    	document.setDate("1/2011");
+	    	document.setEndDate("27 Dez 2011");
+	    	document.setStartDate("25 Nov 2011");
+	    	document.setStatus("STASTUS1");
+	    	document.setType("CASH");
+	    	document.setValue("100,00 €");
+	    	documents[0] = document;
+	    	
+	    	document = new DocumentDTO();
+	    	document.setClient("João Ricardo Machado");
+	    	document.setDate("1/2011");
+	    	document.setEndDate("27 Dez 2011");
+	    	document.setStartDate("25 Nov 2011");
+	    	document.setStatus("STATUS2");
+	    	document.setType("DEBIT");
+	    	document.setValue("100,00 €");
+	    	documents[1] = document;
+	    	
+	    	document = new DocumentDTO();
+	    	document.setClient("João Ricardo Machado");
+	    	document.setDate("1/2011");
+	    	document.setEndDate("27 Dez 2011");
+	    	document.setStartDate("25 Nov 2011");
+	    	document.setStatus("STATUS3");
+	    	document.setType("CASH");
+	    	document.setValue("100,00 €");
+	    	documents[2] = document;
+	    	
+	    	document = new DocumentDTO();
+	    	document.setClient("João Ricardo Machado");
+	    	document.setDate("1/2011");
+	    	document.setEndDate("27 Dez 2011");
+	    	document.setStartDate("25 Nov 2011");
+	    	document.setStatus("STATUS4");
+	    	document.setType("INVOICES");
+	    	document.setValue("100,00 €");
+	    	documents[3] = document;
+	    
+	    	return documents;
+	    }
+	}
+	
+}

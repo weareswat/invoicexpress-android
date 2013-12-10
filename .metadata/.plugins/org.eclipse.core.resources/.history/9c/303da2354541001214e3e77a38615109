@@ -1,0 +1,17 @@
+package pt.rupeal.invoicexpress.layouts;
+
+import android.content.Context;
+import android.util.AttributeSet;
+import android.widget.RelativeLayout;
+
+public class ValueLabelImageLayout extends RelativeLayout {
+
+	public ValueLabelImageLayout(Context context) {
+		super(context);
+	}
+	
+	public ValueLabelImageLayout(Context context, AttributeSet attrs) {
+		super(context, attrs);
+	}
+
+}

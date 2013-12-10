@@ -1,0 +1,7 @@
+package pt.rupeal.invoicexpress.fragments;
+
+import android.app.Fragment;
+
+public class DashBoardFragment extends Fragment {
+
+}

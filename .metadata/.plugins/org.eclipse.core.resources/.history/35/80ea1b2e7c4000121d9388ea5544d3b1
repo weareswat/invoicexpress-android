@@ -1,0 +1,13 @@
+package pt.rupeal.invoicexpress.widgets;
+
+import android.content.Context;
+import android.view.View;
+
+public class SubTitleView extends View {
+
+	public SubTitleView(Context context) {
+		super(context);
+		// TODO Auto-generated constructor stub
+	}
+
+}

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+  	xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:scrollbars="vertical"
+    android:background="@color/background"
+    android:overScrollMode="never"	
+>
+  
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="vertical"
+	>
+	
+	    <Button
+	        android:id="@+id/logout"
+			android:layout_width="match_parent"
+			android:layout_height="100dp"
+			android:layout_marginTop="20dp"
+			android:layout_marginBottom="18dp"
+			android:layout_marginLeft="18dp"
+			android:layout_marginRight="18dp"
+			android:background="@color/button_background"
+			android:text="@string/more_logout"   
+			android:textColor="@color/green_normal"      
+	    />    
+	    
+	    <pt.rupeal.invoicexpress.layouts.SubTitleLayout
+	        android:id="@+id/account"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="16dp"
+	    />
+	        
+	    <pt.rupeal.invoicexpress.layouts.LinkLayout 
+			android:id="@+id/active_account"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="18dp"
+			android:layout_marginRight="18dp"
+			android:clickable="true"
+		/>
+	    
+	    <pt.rupeal.invoicexpress.layouts.LinkLayout 
+	       	android:id="@+id/change_account"
+	       	android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="18dp"
+			android:layout_marginRight="18dp"
+			android:clickable="true"
+	    />
+	    
+	    <pt.rupeal.invoicexpress.layouts.SubTitleLayout 
+	       	android:id="@+id/invoiceXpress"
+	       	android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="32dp"
+	    />
+	        
+	    <pt.rupeal.invoicexpress.layouts.LinkLayout 
+	       	android:id="@+id/about"
+	       	android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:layout_marginLeft="18dp"
+			android:layout_marginRight="18dp"
+			android:layout_marginBottom="32dp"
+			android:clickable="true"
+	    />    
+			    
+	</LinearLayout>
+	
+</ScrollView>

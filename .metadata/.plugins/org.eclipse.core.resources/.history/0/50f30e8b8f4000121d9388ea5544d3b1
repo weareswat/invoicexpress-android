@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+	    <!-- TextView geral -->
+	    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+			android:layout_width="match_parent"
+	    	android:layout_height="wrap_content"
+	    	android:layout_marginTop="46dp"
+	    	android:layout_marginBottom="2dp"
+	  		android:paddingLeft="24dp"
+	    	android:text="@string/contact_details_geral_title" 
+	  		android:textColor="@color/contact_details_sub_titles"
+		/>
+	    
+	    <!-- View seperate horizontal line associated to label preferencial -->
+	    <View 
+	    	android:layout_width="match_parent"
+	    	android:layout_height="2dp"
+	  		android:layout_marginLeft="18dp"
+	  		android:layout_marginRight="18dp"   
+	    	android:background="@color/line_seperator"
+		/>

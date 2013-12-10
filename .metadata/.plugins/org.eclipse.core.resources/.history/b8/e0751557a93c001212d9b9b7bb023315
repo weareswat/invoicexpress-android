@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <string name="empty"></string>
+
+    <string name="app_name">InvoiceXpress</string>
+    
+    <string name="search">Procurar</string>
+    <string name="refresh">Actualizar</string>
+    
+	<string name="doc_type_all">Todas</string>
+    <string name="doc_type_invoice">Facturas</string>
+    <string name="doc_type_cash">Dinheiro</string>
+    <string name="doc_type_credit">Crédito</string>
+    <string name="doc_type_debit">Débito</string>
+    <string name="doc_type_receipt">Recibos</string>
+    
+    <!-- Contact details --> <!-- useless -->
+    <string name="contact_details_title">Dados do cliente</string>
+    <string name="contact_details_button">Consultar Facturas</string>
+    <string name="contact_details_name">Nome</string>
+    <string name="contact_details_phone1">Telefone</string>
+    <string name="contact_details_email1">Email</string>
+    <string name="contact_details_address">Endereço</string>
+    <string name="contact_details_nif">Contribuinte</string>
+    <string name="contact_details_phone2">Telefone</string>
+    <string name="contact_details_fax">Fax</string>    
+    <string name="contact_details_email2">Email</string>
+    
+</resources>

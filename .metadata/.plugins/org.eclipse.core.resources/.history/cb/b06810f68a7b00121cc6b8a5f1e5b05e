@@ -1,0 +1,439 @@
+package pt.rupeal.invoicexpress.server;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.apache.http.HttpHost;
+import org.apache.http.conn.params.ConnRoutePNames;
+import org.apache.http.params.BasicHttpParams;
+import org.apache.http.params.HttpConnectionParams;
+import org.apache.http.params.HttpParams;
+
+import android.accounts.AccountManager;
+import android.app.Activity;
+import android.app.Fragment;
+
+import pt.rupeal.invoicexpress.dtos.AccountDTO;
+import pt.rupeal.invoicexpress.dtos.AccountDetailsDTO;
+import pt.rupeal.invoicexpress.dtos.DocumentDTO;
+import pt.rupeal.invoicexpress.enums.DocumentStatusEnum;
+import pt.rupeal.invoicexpress.enums.DocumentTypeEnum;
+import pt.rupeal.invoicexpress.fragments.DocumentsListFragment.DocumentFilterFragment;
+import pt.rupeal.invoicexpress.utils.DocumentsComparable;
+import pt.rupeal.invoicexpress.utils.StatusGraphs;
+
+public class InvoiceXpress {
+
+	private static final String LOGIN_URL = "https://www.invoicexpress.net/login.xml";
+	
+	private static final String ACCOUNT_ANDROID_INVOICEXPRESS_TYPE = "pt.rupeal.invoicexpress";
+
+	private static final boolean USE_PROXY = true;
+	private static final int TIMEOUT_CONNECTION = 20000;
+	private static final int TIMEOUT_SOCKET = 20000;
+	
+	private static InvoiceXpress instance;
+	
+	// screen width and height
+	private int width = -1;
+	private int height = -1;
+	
+	private AccountManager accountManager;
+	
+	private List<AccountDTO> accounts;
+	private AccountDTO activeAccount;
+	// currency and performance purpose
+	private AccountDetailsDTO activeAccountDetails;
+	
+	// history and back purpose
+	private List<Fragment> fragments; 
+	
+	private Map<String, DocumentDTO> documents;
+	private int currentPage;
+	private int totalPages;
+	private int downloadedDocuments;
+	private int totalDocuments;
+	
+	private Map<String, DocumentDTO> documentsArchived;
+	private int currentPageArchived;
+	private int totalPagesArchived;
+	private int downloadedDocumentsArchived;
+	private int totalDocumentsArchived;
+	
+	private Map<String, DocumentDTO> documentsOverDue;
+	private int currentPageOverDue;
+	private int totalPagesOverDue;
+	private int downloadedDocumentsOverDue;
+	private int totalDocumentsOverDue;
+	
+	private StatusGraphs statusGraphs;
+	
+	private InvoiceXpress() {
+		fragments = new ArrayList<Fragment>();
+
+		accounts = new ArrayList<AccountDTO>();
+		documentsArchived = new HashMap<String, DocumentDTO>();
+		documents = new HashMap<String, DocumentDTO>();
+		documentsOverDue = new HashMap<String, DocumentDTO>();
+	}
+	
+	public static InvoiceXpress getInstance() {
+		if(instance == null){
+			instance = new InvoiceXpress();
+		}
+		
+		return instance;
+	}
+	
+	public List<Fragment> getFragments() {
+		return fragments;
+	}
+	
+	public Fragment getLastFragment() {
+		return fragments.get(fragments.size() - 1);
+	}
+	
+	public boolean hasFragment() {
+		return !fragments.isEmpty();
+	}
+	
+	public void removeLastFragment(Fragment fragment) {
+		int index = fragments.size() - 1;
+
+		while (index >= 0) {
+			Fragment fragListElem = fragments.get(index);
+			if(fragListElem.equals(fragment)) {
+				break;
+			}
+			
+			index--;
+		}
+		
+		if(index != fragments.size() - 1) {
+			fragments.remove(index);
+		}
+	}	
+
+	public final int getScreenWidth(Activity activity) {
+		if(width == -1) {
+			width = activity.getWindowManager().getDefaultDisplay().getWidth(); 
+		}
+		
+		return width;
+	}
+	
+	public final int getScreenHeight(Activity activity) {
+		if(height == -1) {
+			height = activity.getWindowManager().getDefaultDisplay().getHeight();
+		}
+		
+		return height;
+	}	
+	
+	public final String getLoginUrl() {
+		return LOGIN_URL;
+	}
+	
+	public final String getAccountAndroidType() {
+		return ACCOUNT_ANDROID_INVOICEXPRESS_TYPE;
+	}
+	
+	public HttpParams getHttpParameters() {
+		HttpParams httpParameters = new BasicHttpParams();
+		// Set the timeout in milliseconds until a connection is established.
+		// The default value is zero, that means the timeout is not used. 
+		HttpConnectionParams.setConnectionTimeout(httpParameters, InvoiceXpress.TIMEOUT_CONNECTION);
+		// Set the default socket timeout (SO_TIMEOUT) 
+		// in milliseconds which is the timeout for waiting for data.
+		HttpConnectionParams.setSoTimeout(httpParameters, InvoiceXpress.TIMEOUT_SOCKET);
+		
+		if(USE_PROXY) {
+			HttpHost proxy = new HttpHost("10.159.32.155", 8080); 
+			httpParameters.setParameter(ConnRoutePNames.DEFAULT_PROXY, proxy);
+		}
+		
+		return httpParameters;
+	}
+	
+	public void setAccountManager(AccountManager accountmanager) {
+		this.accountManager = accountmanager;
+	}
+	
+	public AccountManager getAccountManager() {
+		return accountManager; 
+	}	
+	
+	public List<AccountDTO> getAccounts() {
+		return accounts;
+	}
+
+	public AccountDTO getActiveAccount() {
+		return activeAccount;
+	}
+	
+	public void setActiveAccount(AccountDTO account) {
+		activeAccount = account;
+	}	
+	
+	public AccountDetailsDTO getActiveAccountDetails() {
+		return activeAccountDetails;
+	}
+
+	public void setActiveAccountDetails(AccountDetailsDTO activeAccountDetails) {
+		this.activeAccountDetails = activeAccountDetails;
+	}
+
+	public Map<String, DocumentDTO> getDocuments(int filterCode){
+		switch (filterCode) {
+		 	case DocumentFilterFragment.FILTER_CODE_ARCHIVED:
+				return documentsArchived;
+		 	case DocumentFilterFragment.FILTER_CODE_ALL:
+				return documents;
+		 	case DocumentFilterFragment.FILTER_CODE_OVER_DUE:
+				return documentsOverDue;					
+			default:
+				// TODO error
+				return null;
+		}		
+	}
+	
+	public List<DocumentDTO> getDocumentsList(int filterCode){
+		List<DocumentDTO> documentsList = null;
+		
+		switch (filterCode) {
+		 	case DocumentFilterFragment.FILTER_CODE_ARCHIVED:
+		 		documentsList = new ArrayList<DocumentDTO>(documentsArchived.values());
+		 		Collections.sort(documentsList, new DocumentsComparable());
+				return documentsList;
+		 	case DocumentFilterFragment.FILTER_CODE_ALL:
+		 		documentsList = new ArrayList<DocumentDTO>(documents.values());
+		 		Collections.sort(documentsList, new DocumentsComparable());
+				return documentsList;
+		 	case DocumentFilterFragment.FILTER_CODE_OVER_DUE:
+		 		documentsList = new ArrayList<DocumentDTO>(documentsOverDue.values());
+		 		Collections.sort(documentsList, new DocumentsComparable());
+				return documentsList;				
+			default:
+				// TODO error
+				return documentsList;
+		}		
+	}	
+	
+	public void addDocuments(int filterCode, List<DocumentDTO> documents){
+		
+		for (DocumentDTO document : documents) {
+			
+			switch (filterCode) {
+				case DocumentFilterFragment.FILTER_CODE_ARCHIVED:
+					this.documentsArchived.put(document.getId(), document);
+					break;
+					
+				case DocumentFilterFragment.FILTER_CODE_ALL:
+					this.documents.put(document.getId(), document);
+					break;
+					
+				case DocumentFilterFragment.FILTER_CODE_OVER_DUE:
+					this.documentsOverDue.put(document.getId(), document);
+					break;
+						
+				default:
+					// TODO error
+					break;
+			}		
+		}
+		
+	}	
+	
+	public void clearDocuments(int filterCode) {
+		switch (filterCode) {
+		 	case DocumentFilterFragment.FILTER_CODE_ARCHIVED:
+				this.documentsArchived.clear();
+				this.currentPageArchived = 0;
+				this.totalPagesArchived = 0;
+				this.downloadedDocumentsArchived = 0;
+				this.totalDocumentsArchived = 0;
+				break;
+		 	case DocumentFilterFragment.FILTER_CODE_ALL:
+				this.documents.clear();
+				this.currentPage = 0;
+				this.totalPages = 0;
+				this.downloadedDocuments = 0;
+				this.totalDocuments = 0;
+				break;
+		 	case DocumentFilterFragment.FILTER_CODE_OVER_DUE:
+				this.documentsOverDue.clear();
+				this.currentPageOverDue = 0;
+				this.totalPagesOverDue = 0;
+				this.downloadedDocumentsOverDue = 0;
+				this.totalDocumentsOverDue = 0;
+				break;
+			default:
+				// TODO error
+				break;
+		}		
+	}	
+
+	public int getCurrentPage(int filterCode) {
+		switch (filterCode) {
+		 	case DocumentFilterFragment.FILTER_CODE_ARCHIVED:
+				return currentPageArchived;
+		 	case DocumentFilterFragment.FILTER_CODE_ALL:
+				return currentPage;
+		 	case DocumentFilterFragment.FILTER_CODE_OVER_DUE:
+				return currentPageOverDue;					
+			default:
+				// TODO error
+				return 0;
+		}
+	}	
+	
+	public void setCurrentPage(int filterCode, int page) {
+		switch (filterCode) {
+			case DocumentFilterFragment.FILTER_CODE_ARCHIVED:
+				this.currentPageArchived = page;
+				break;
+			case DocumentFilterFragment.FILTER_CODE_ALL:
+				this.currentPage = page;
+				break;
+			case DocumentFilterFragment.FILTER_CODE_OVER_DUE:
+				this.currentPageOverDue = page;
+				break;
+			default:
+				// TODO
+				break;
+		}
+
+	}	
+
+	public int getTotalPages(int filterCode) {
+		switch (filterCode) {
+			case DocumentFilterFragment.FILTER_CODE_ARCHIVED:
+				return totalPagesArchived;
+			case DocumentFilterFragment.FILTER_CODE_ALL:
+				return totalPages;
+			case DocumentFilterFragment.FILTER_CODE_OVER_DUE:
+				return totalPagesOverDue;
+			default:
+				// TODO
+				return 0;
+		}
+	}	
+	
+	public void setTotalPages(int filterCode, int totalPages) {
+		switch (filterCode) {
+			case DocumentFilterFragment.FILTER_CODE_ARCHIVED:
+				this.totalPagesArchived = totalPages;
+				break;
+			case DocumentFilterFragment.FILTER_CODE_ALL:
+				this.totalPages = totalPages;
+				break;
+			case DocumentFilterFragment.FILTER_CODE_OVER_DUE:
+				this.totalPagesOverDue = totalPages;
+				break;
+			default:
+				// TODO
+				break;
+		}
+	}	
+
+	public int getDownloadedDocuments(int filterCode) {
+		switch (filterCode) {
+			case DocumentFilterFragment.FILTER_CODE_ARCHIVED:
+				return this.downloadedDocumentsArchived;
+			case DocumentFilterFragment.FILTER_CODE_ALL:
+				return this.downloadedDocuments;
+			case DocumentFilterFragment.FILTER_CODE_OVER_DUE:
+				return this.downloadedDocumentsOverDue;
+			default:
+				// TODO
+				return 0;
+		}
+
+	}	
+
+	public void addDownloadedDocuments(int filterCode, int downloadedDocuments) {
+		switch (filterCode) {
+			case DocumentFilterFragment.FILTER_CODE_ARCHIVED:
+				this.downloadedDocumentsArchived += downloadedDocuments;
+				break;
+			case DocumentFilterFragment.FILTER_CODE_ALL:
+				this.downloadedDocuments += downloadedDocuments;
+				break;
+			case DocumentFilterFragment.FILTER_CODE_OVER_DUE:
+				this.downloadedDocumentsOverDue += downloadedDocuments;
+				break;
+			default:
+				// TODO
+				break;
+		}
+	}	
+	
+	public int getTotalDocuments(int filterCode) {
+		switch (filterCode) {
+			case DocumentFilterFragment.FILTER_CODE_ARCHIVED:
+				return totalDocumentsArchived;
+			case DocumentFilterFragment.FILTER_CODE_ALL:
+				return totalDocuments;
+			case DocumentFilterFragment.FILTER_CODE_OVER_DUE:
+				return totalDocumentsOverDue;
+			default:
+				// TODO
+				return 0;
+		}
+	}	
+
+	public void setTotalDocuments(int filterCode, int totalDocuments) {
+		switch (filterCode) {
+			case DocumentFilterFragment.FILTER_CODE_ARCHIVED:
+				this.totalDocumentsArchived = totalDocuments;
+				break;
+			case DocumentFilterFragment.FILTER_CODE_ALL:
+				this.totalDocuments = totalDocuments;
+				break;
+			case DocumentFilterFragment.FILTER_CODE_OVER_DUE:
+				this.totalDocumentsOverDue = totalDocuments;
+				break;
+			default:
+				// TODO
+				break;
+		}
+	}	
+	
+	public Map<DocumentStatusEnum, List<DocumentStatusEnum>> getStatusGraphs(String documentType) {
+		if(statusGraphs == null) {
+			statusGraphs = new StatusGraphs();
+		}
+		
+		if(DocumentTypeEnum.CASHINVOICE.getValue().equals(documentType)) { 
+			return statusGraphs.getCashInvoiceGraph();
+		} else if(DocumentTypeEnum.RECEIPT.getValue().equals(documentType)) {
+			return statusGraphs.getReceiptGraph();
+		} else if(DocumentTypeEnum.CREDITNOTE.getValue().equals(documentType)) { 
+			return statusGraphs.getCreditNoteGraph();
+		} else if(DocumentTypeEnum.DEBITNOTE.getValue().equals(documentType)) {
+			return statusGraphs.getDebitNoteGraph();
+		} else if(DocumentTypeEnum.INVOICE.getValue().equals(documentType)) { 
+			return statusGraphs.getInvoiceGraph();
+		} else if(DocumentTypeEnum.SIMPLIFIEDINVOICE.getValue().equals(documentType)) { 
+			return statusGraphs.getSimplifiedInvoiceGraph();
+		}
+		
+		return null;
+	}
+	
+	public DocumentDTO getDocument(Activity activity) {
+		String id = activity.getIntent().getExtras().getString(DocumentDTO.ID);
+		int filterCode = activity.getIntent().getExtras().getInt(DocumentFilterFragment.FILTER_CODE);
+		return getDocuments(filterCode).get(id);
+	}
+	
+	public DocumentDTO removeDocument(Activity activity) {
+		String id = activity.getIntent().getExtras().getString(DocumentDTO.ID);
+		int filterCode = activity.getIntent().getExtras().getInt(DocumentFilterFragment.FILTER_CODE);
+		return getDocuments(filterCode).remove(id);
+	}	
+	
+}

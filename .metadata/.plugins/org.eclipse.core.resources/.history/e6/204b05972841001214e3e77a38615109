@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<color name="background">#171717</color>
+
+	<color name="button_background">#262626</color>
+	<color name="button_text_color">#636363</color>
+	
+	<color name="contact_details_sub_titles">#636363</color>
+	<color name="contact_details_text">#FFFFFF</color>
+		
+	<color name="documents_navigation_bar_background">#333333</color>
+	<color name="documents_navigation_bar_text">#FFFFFF</color>
+	<color name="documents_text">#FFFFFF</color>
+
+	<color name="green_normal">#99CB00</color>
+	<color name="green_shadow">#1B1E16</color>
+	
+	<color name="line_seperator">#2F2F2F</color>
+	
+</resources>

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <string name="empty"></string>
+
+    <string name="app_name">InvoiceXpress</string>
+
+    <string name="currency">€</string>
+    
+    <string name="search">Search</string>
+    <string name="refresh">Update</string>
+    <string name="email">Send email</string>
+    
+    <string name="contacts">contacts</string>
+
+    <!-- Action Bar titles -->
+	<string name="dashBoard_actionBar_title">DashBoard</string>
+    <string name="documents_actionBar_title">Documents</string>
+    <string name="conctacs_actionBar_title">Contacts</string>
+    <string name="more_actionBar_title">More</string>
+    
+    <!-- Contact details -->
+    <string name="contact_details_button">Consultar facturas</string>
+    <string name="contact_details_preferred_title">PREFERENCIAL</string>
+    <string name="contact_details_name">NOME</string>
+    <string name="details_phone">TELEFONE</string>
+    <string name="details_email">EMAIL</string>
+    
+    <string name="details_address">MORADA</string>
+    <string name="contact_details_nif">CONTRIBUINTE</string>
+    <string name="details_fax">FAX</string>    
+    
+    <string name="details_general_subTitle">GERAL</string>
+    
+    <string name="details_type_subTitle">PLANO</string>
+    
+    <string name="details_currency_subTitle">CURRENCY</string>
+    
+    <!-- Documents list -->
+    <string name="doc_more_title">Carregar mais documentos&#8230;</string>
+    <string name="doc_more_downloaded">documentos carregados de</string>
+    <string name="doc_more_to_upload">documentos ainda não carregados</string>
+    
+    <string name="doc_list_empty">NÃO EXISTEM DOCUMENTOS</string>
+    
+    <!-- Documents types itnerface -->
+	<string name="doc_type_all">TODAS</string>
+    <string name="doc_type_invoice">Factura</string>
+    <string name="doc_type_simple_invoice">Factura Simplificada</string>
+    <string name="doc_type_cash">Venda a Dinheiro</string>
+    <string name="doc_type_credit">Nota de Crédito</string>
+    <string name="doc_type_debit">Nota de Débito</string>
+    <string name="doc_type_receipt">Recibo</string>
+    
+    <!-- Documents filters -->
+    <string name="doc_filter_all">TODOS</string>
+    <string name="doc_filter_expired">VENCIDOS</string>
+    <string name="doc_filter_archived">ARQUIVADOS</string>
+    
+    <!-- Document Details -->
+    <string name="doc_details_sequenceNumber_label">Factura nº</string>
+    <string name="doc_details_date_label">Data:</string>
+    <string name="doc_details_dueDate_label">Venc.:</string>
+    
+    <!-- Document Details Cancel Dialog-->
+    <string name="doc_details_cancel_dialog_title">Cancelar Documento</string>
+    <string name="doc_details_cancel_dialog_cancel">Cancelar</string>
+    <string name="doc_details_cancel_dialog_ok">Cancelar Documento</string>
+    <string name="doc_details_cancel_dialog_hint">Descrição de cancelamento</string>
+    
+
+    <!-- Document status -->
+    <string name="doc_status_canceled">Cancelar</string>
+    <string name="doc_status_draft">Rascunho</string>
+    <string name="doc_status_final">Finalizar</string>    
+    <string name="doc_status_secondCopy">2ª Via</string>    
+    <string name="doc_status_settled">Marcar como Pago</string>
+    <string name="doc_status_unsettled">Cancelar pagamento</string>
+    <string name="doc_status_deleted">Apagar</string>
+    
+    <!-- Item details -->
+    <string name="item_details_name">ITEM</string>
+    <string name="item_details_description">DESCRIÇÃO</string>
+    <string name="item_details_values">VALORES</string>
+	<string name="item_details_total">TOTAL LÍQUIDO</string>
+	<string name="item_details_unitPrice_label">Preço unitário</string>
+    <string name="item_details_quantity_label">Quantidade</string>
+    <string name="item_details_taxes_label">Impostos</string>
+	<string name="item_details_discounts_label">Descontos</string>      
+    
+	<string name="image_description"></string>
+    <string name="details_image_description"></string>
+    <string name="contact_details_ic_phone_access_description">fazer chamada</string>
+    <string name="contact_details_ic_email_access_description">enviar emaill</string>
+	<string name="doc_details_items_subtitle">ITENS (VALOR TOTAL)</string>
+	<string name="doc_details_values_subtitle">SUMÁRIO</string>
+	<string name="doc_details_values_sum">Soma</string>
+    <string name="doc_details_values_discount">Desconto</string>
+    <string name="doc_details_values_before_taxes">Sem Impostos</string>
+    <string name="doc_details_values_taxes">Impostos</string>
+	<string name="doc_details_values_total">TOTAL</string>    
+    <string name="doc_details_notes_label">OBSERVAÇÕES</string>
+    <string name="doc_details_payment_label">MULTIBANCO</string>
+    
+    <!-- MORE -->
+    <string name="more_logout">LOGOUT</string>
+    <string name="more_account">CONTA</string>
+    <string name="more_change_account">Mudar conta</string>
+    <string name="more_invoiceXpress">INVOICEXPRESS</string>
+    <string name="more_about">About</string>
+    
+    <!-- LOGIN -->
+    <string name="login_email">Email</string>
+    <string name="login_password">Palavra-passe</string>
+    <string name="login">LOGIN</string>    
+    <string name="login_create_aacount">Criar conta</string>
+    
+    <!-- ABOUT -->
+    <string name="about_invoiceXpress">InvoiceXpress</string>
+    <string name="about_version">Versão 1.0</string>
+    <string name="about_link">www.invoicexpress.com</string>
+    <string name="about_support">2013 RUPEAL. Todos os direitos reservados.</string>
+    <string name="about_button">SUPORTE</string>
+    
+    <!-- EMAIL -->
+    <string name="email_to">Para</string>
+    <string name="email_subject">Assunto</string>
+    <string name="email_body">Mensagem</string>
+    
+    <!-- DASHBOARD -->
+    <string name="dashboard_invoicing">FACTURAÇÃO</string>
+    <string name="dashboard_treasury">TESOURARIA</string>
+    <string name="dashboard_quarterly">TRIMESTRE</string>
+    <string name="dashboard_top5debtors">TOP 5 DEVEDORES</string>
+    <string name="dashboard_top5clients">TOP 5 CLIENTES</string>
+    
+    <string name="dashboard_title">Valores em €</string>
+    <string name="dashboard_legend_label">Valores em €</string>
+    
+    <!-- Error Messages Authentication -->
+    <string name="error_bad_credentials">Dados de login inválidos.</string>
+    <string name="error_invalid_params">Número de dados de autenticação inválidos.</string>
+    <string name="error_invalid_number_accounts">Número de contas inválido.</string>
+    <string name="error_there_arent_active_accounts">Não existem contas activas.</string>
+    <string name="error_cant_login_unexpected_error">Não é possível fazer login. Tente mais tarde.</string>
+    
+    <!-- Error Documents -->
+    <string name="error_get_documents_unexpected_error">Não é possível obter documentos. Tente mais tarde.</string>
+    
+    <!-- Error Documents change status -->
+    <!-- string name="error_change_status_error">Não foi possível actualizar o estado do documento.</string -->
+    <string name="error_change_status_date">Data não pode ser anterior à última factura desta série</string>
+    <string name="error_change_status_cancel_empty_message">A razão do cancelamento não pode estar em branco.</string>
+    <string name="error_change_status_already_sent_to_at">Não é possível cancelar, o documento já foi enviado à Autoridade Tributária.</string>
+    
+</resources>

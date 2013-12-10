@@ -1,0 +1,15 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+   	<item 
+   	    android:id="@+id/refresh_tab"
+   	    android:title="@string/refresh"
+        android:icon="@drawable/ic_action_refresh"
+        android:showAsAction="always"
+	/>
+   	
+   	<item 
+   	    android:id="@+id/search_tab"
+   	    android:title="@string/search"
+        android:showAsAction="always"
+        android:actionViewClass="pt.rupeal.invoicexpress.widgets.SearchView"
+	/>
+</menu>

@@ -1,0 +1,5 @@
+package pt.rupeal.invoicexpress.layouts;
+
+public class ValueLabelImageLayout {
+
+}

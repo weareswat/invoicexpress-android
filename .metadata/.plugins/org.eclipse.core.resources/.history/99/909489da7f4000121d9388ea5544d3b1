@@ -1,0 +1,19 @@
+package pt.rupeal.invoicexpress.widgets;
+
+import pt.rupeal.invoicexpress.R;
+import android.content.Context;
+import android.graphics.Canvas;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.widget.LinearLayout;
+
+public class SubTitleView extends LinearLayout {
+
+	public SubTitleView(Context context) {
+		super(context);
+		LayoutInflater inflater = LayoutInflater.from(getContext());
+		View v = inflater.inflate(R.layout.contact_details, null, false);
+		this.addView(v);
+	}
+	
+}

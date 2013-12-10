@@ -1,0 +1,90 @@
+package pt.rupeal.invoicexpress.fragments;
+
+import java.util.HashMap;
+import java.util.Set;
+
+import pt.rupeal.invoicexpress.R;
+import pt.rupeal.invoicexpress.dtos.ItemDetailsDTO;
+import pt.rupeal.invoicexpress.layouts.SubTitleLayout;
+import android.app.Fragment;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.RelativeLayout;
+import android.widget.RelativeLayout.LayoutParams;
+import android.widget.TextView;
+
+public class ItemDetailsFragment extends Fragment {
+
+	@Override
+	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+		
+		View view = inflater.inflate(R.layout.item_details, container, false);
+		
+		ItemDetailsDTO itemDetails = getItemDetails();
+		
+		((TextView) view.findViewById(R.id.item_details_title)).setText(itemDetails.getInvoiceId());
+		
+		((SubTitleLayout) view.findViewById(R.id.item_details_name_subtitle)).setText(R.string.item_details_name);
+		((TextView) view.findViewById(R.id.item_details_name_value)).setText(itemDetails.getName());
+		
+		((SubTitleLayout) view.findViewById(R.id.item_details_description_subtitle)).setText(R.string.item_details_description);
+		((TextView) view.findViewById(R.id.item_details_description_value)).setText(itemDetails.getDescription());
+		
+		((SubTitleLayout) view.findViewById(R.id.item_details_values_subtitle)).setText(R.string.item_details_values);
+		
+		RelativeLayout values = (RelativeLayout) view.findViewById(R.id.item_details_values);
+		
+		Set<String> keys = itemDetails.getValues().keySet();
+		int id = 0;
+		
+		for (String key : keys) {
+			
+			TextView value = new TextView(getActivity());
+			value.setText(itemDetails.getValues().get(key));
+			value.setId(id);
+			LayoutParams params = new LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+			params.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+			if(id > 0){
+				params.addRule(RelativeLayout.ALIGN_BOTTOM, id-1);
+			}
+			value.setLayoutParams(params);
+			values.addView(value);
+			
+			TextView label = new TextView(getActivity());
+			label.setText(key);
+			params = new LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+			params.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
+			params.addRule(RelativeLayout.ALIGN_LEFT, id);
+			label.setLayoutParams(params);			
+			values.addView(label);
+			
+			id++;
+		}
+		
+		return view;
+	}
+	
+	private ItemDetailsDTO getItemDetails(){
+		
+		ItemDetailsDTO itemDetails = new ItemDetailsDTO();
+		
+		itemDetails.setInvoiceId("Factura nº 1/2012");
+		itemDetails.setName("SmartBox");
+		itemDetails.setDescription("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standart dummy text ever since");
+		
+		HashMap<String, String> values = new HashMap<String, String>();
+		values.put("Preço Unitário", "580,00");
+		values.put("Quantidade", "0,00");
+		values.put("Impostos", "580,00");
+		values.put("Descontos", "20,00");
+
+		itemDetails.setValues(values);
+		
+		return itemDetails;
+		
+	}
+	
+	
+}

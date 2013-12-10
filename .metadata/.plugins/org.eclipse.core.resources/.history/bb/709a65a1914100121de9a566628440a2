@@ -1,0 +1,52 @@
+package pt.rupeal.invoicexpress.adapters;
+
+import java.util.HashMap;
+import java.util.Set;
+
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+
+public class ItemDetailsValuesAdapter extends BaseAdapter {
+
+	private Context context;
+	private HashMap<String, Double> values;
+	
+	public ItemDetailsValuesAdapter(Context context, HashMap<String, Double> values){
+		this.context = context;
+		this.values = values;
+	}
+	
+	@Override
+	public int getCount() {
+		return values.keySet().size();
+	}
+
+	@Override
+	public Object getItem(int position) {
+		int i = 0;
+		Set<String> keys = values.keySet();
+		for (String key : keys) {
+			if(i == position){
+				return values.get(key);
+			}
+			
+			i++;
+		}
+		
+		return null;
+	}
+
+	@Override
+	public long getItemId(int position) {
+		return position;
+	}
+
+	@Override
+	public View getView(int position, View convertView, ViewGroup parent) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

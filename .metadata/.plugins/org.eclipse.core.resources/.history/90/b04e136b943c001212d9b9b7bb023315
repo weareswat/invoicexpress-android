@@ -1,0 +1,12 @@
+package pt.rupeal.invoicexpress.utils;
+
+import pt.rupeal.invoicexpress.enums.DocumentTypeEnum;
+import android.graphics.drawable.Drawable;
+
+public class DocumentUtil {
+
+	public static int getTypeIconDrawableId(String type){
+		return DocumentTypeEnum.valueOf(type).getDrawableId();
+	}
+	
+}
