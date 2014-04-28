@@ -1,0 +1,17 @@
+=== What's this?
+
+InvoiceXpress source-code for Android app.
+
+=== Useful stuff
+You need a valid account for InvoiceXpress.
+Get one at http://en.invoicexpress.com
+
+Docs for the InvoiceXpress API can be found at http://en.invoicexpress.com/api/
+
+== Questions
+Feel free to drop us a line at support@invoicexpress.com
+
+Thanks,
+The InvoiceXpress team
+
+
