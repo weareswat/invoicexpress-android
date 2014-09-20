@@ -3,6 +3,7 @@ package pt.rupeal.invoicexpress.fragments;
 import pt.rupeal.invoicexpress.MainActivity;
 import pt.rupeal.invoicexpress.R;
 import pt.rupeal.invoicexpress.enums.FragmentTagsEnum;
+import pt.rupeal.invoicexpress.enums.RoleEnum;
 import pt.rupeal.invoicexpress.fragments.DocumentsListFragment.DocumentFilterFragment;
 import pt.rupeal.invoicexpress.layouts.SubTitleLayout;
 import pt.rupeal.invoicexpress.layouts.ValueLabelImageLayout;
@@ -30,6 +31,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class ContactDetailsFragment extends Fragment {
 
@@ -80,6 +82,12 @@ public class ContactDetailsFragment extends Fragment {
 				
 				// check if the progress bar is visible to disable clicks
 				if(!InvoiceXpress.isInvoiceXpressClickable(getActivity())) {
+					return;
+				}
+				
+				// verify if the user can consult invoices according his roles
+				if(!RoleEnum.isAllowToConsultInvoices(InvoiceXpress.getInstance().getActiveAccount().getRoles())) {
+					Toast.makeText(getActivity(), R.string.error_documents_roles, Toast.LENGTH_LONG).show();
 					return;
 				}
 				

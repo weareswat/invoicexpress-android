@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    
+    <string name="empty"></string>
+
+    <string name="app_name">InvoiceXpress</string>
+
+    <string name="currency">€</string>
+    
+    <string name="search">Search</string>
+    <string name="refresh">Update</string>
+    <string name="email">Send email</string>
+    
+    <string name="contacts">contacts</string>
+    
+    <string name="dialog_exit_title">Are you sure you want to exit InvoiceXpress?</string>
+    <string name="dialog_exit_yes">Yes</string>
+    <string name="dialog_exit_no">No</string>
+
+    <!-- Action Bar titles -->
+	<string name="dashBoard_actionBar_title">DashBoard</string>
+    <string name="documents_actionBar_title">Documents</string>
+    <string name="conctacs_actionBar_title">Contacts</string>
+    <string name="more_actionBar_title">More</string>
+    
+    <!-- Contacts list -->
+    <string name="contacts_list_empty">THERE ARE NO CONTACTS</string>
+    
+    <!-- Contact details -->
+    <string name="contact_details_button">Invoices</string>
+    <string name="contact_details_preferred_title">PRIMARY</string>
+    <string name="contact_details_name">NOME</string>
+    <string name="details_phone">TELEPHONE</string>
+    <string name="details_email">EMAIL</string>
+    
+    <string name="details_address">ADDRESS</string>
+    <string name="contact_details_nif">VAT NUMBER</string>
+    <string name="details_fax">FAX</string>    
+    
+    <string name="details_general_subTitle">GERAL</string>
+    
+    <string name="details_type_subTitle">PLAN</string>
+    
+    <string name="details_currency_subTitle">CURRENCY</string>
+    
+    <!-- Documents list -->
+    <string name="doc_more_title">More documents&#8230;</string>
+    <string name="doc_more_downloaded">downloaded documents and</string>
+    <string name="doc_more_to_upload">documents to upload</string>
+    
+    <string name="doc_list_empty">THERE ARE NO DOCUMENTS</string>
+    
+    <!-- Documents types itnerface -->
+	<string name="doc_type_all">All</string>
+    <string name="doc_type_invoice">Invoice</string>
+    <string name="doc_type_simple_invoice">Simplified Invoice</string>
+    <string name="doc_type_cash">Cash Invoice</string>
+    <string name="doc_type_credit">Credit Note</string>
+    <string name="doc_type_debit">Debit Note</string>
+    <string name="doc_type_receipt">Receipts</string>
+    
+    <!-- Documents filters -->
+    <string name="doc_filter_all">ALL</string>
+    <string name="doc_filter_expired">OVERDUE</string>
+    <string name="doc_filter_archived">ARCHIVED</string>
+    
+    <!-- Document Details -->
+    <string name="doc_details_final_costumer">Final Costumer</string>
+    <string name="doc_details_sequenceNumber_label">Invoice nº</string>
+    <string name="doc_details_date_label">Date:</string>
+    <string name="doc_details_dueDate_label">Due date:</string>
+    
+    <!-- Document Details Cancel Dialog-->
+    <string name="doc_details_cancel_dialog_title">Cancel Document</string>
+    <string name="doc_details_cancel_dialog_cancel">Cancel</string>
+    <string name="doc_details_cancel_dialog_ok">Cancel Document</string>
+    <string name="doc_details_cancel_dialog_hint">Cancel reason</string>
+    
+
+    <!-- Document status -->
+    <string name="doc_status_canceled">Cancel</string>
+    <string name="doc_status_draft">Draft</string>
+    <string name="doc_status_final">Finalize</string>    
+    <string name="doc_status_secondCopy">2ª Copy</string>    
+    <string name="doc_status_settled">Settle</string>
+    <string name="doc_status_unsettled">Delete Payment</string>
+    <string name="doc_status_deleted">Delete</string>
+    
+    <!-- Document status label Gui, Document Details Fragment -->
+    <string name="doc_status_gui_canceled">Canceled</string>
+    <string name="doc_status_gui_draft">Draft</string>
+    <string name="doc_status_gui_final">Finalized</string>    
+    <string name="doc_status_gui_secondCopy">2ª Copy</string>    
+    <string name="doc_status_gui_settled">Settled</string>
+    
+    <!-- Item details -->
+    <string name="item_details_name">ITEM</string>
+    <string name="item_details_description">DESCRIPTION</string>
+    <string name="item_details_values">VALUES</string>
+	<string name="item_details_total">TOTAL w/o TAXES</string>
+	<string name="item_details_unitPrice_label">Price</string>
+    <string name="item_details_quantity_label">Quantity</string>
+    <string name="item_details_taxes_label">Total Taxes</string>
+	<string name="item_details_discounts_label">Discount</string>      
+    
+	<string name="image_description"></string>
+    <string name="details_image_description"></string>
+    <string name="contact_details_ic_phone_access_description">make call</string>
+    <string name="contact_details_ic_email_access_description">send emaill</string>
+	<string name="doc_details_items_subtitle_Left">Items</string>
+	<string name="doc_details_items_subtitle_Right">Total w/Taxes</string>
+	<string name="doc_details_values_subtitle">Summary</string>
+	<string name="doc_details_values_sum">Sum</string>
+    <string name="doc_details_values_discount">Discount</string>
+    <string name="doc_details_values_before_taxes">w/ Vat</string>
+    <string name="doc_details_values_taxes">Vat</string>
+	<string name="doc_details_values_total">Total</string>    
+    <string name="doc_details_notes_label">Observations</string>
+    <string name="doc_details_payment_label">ATM</string>
+    
+    <!-- MORE -->
+    <string name="more_logout">LOGOUT</string>
+    <string name="more_account">ACCOUNT</string>
+    <string name="more_change_account">Switch account</string>
+    <string name="more_invoiceXpress">INVOICEXPRESS</string>
+    <string name="more_about">About</string>
+    
+    <!-- LOGIN -->
+    <string name="login_email">Email</string>
+    <string name="login_password">Password</string>
+    <string name="login">LOGIN</string>    
+    <string name="login_create_aacount">Create account</string>
+    
+    <!-- ABOUT -->
+    <string name="about_invoiceXpress">InvoiceXpress</string>
+    <string name="about_version">Version 1.0.1</string>
+    <string name="about_link">www.invoicexpress.com</string>
+    <string name="about_support">&#169; 2013 RUPEAL. All rights reserved.</string>
+    <string name="about_button">SUPPORT</string>
+    
+    <!-- EMAIL -->
+    <string name="email_to">To</string>
+    <string name="email_subject">Subject</string>
+    <string name="email_body">Body</string>
+    
+	<string name="email_body_message">{0}, \n\n You received a(n) {1} from {2}.\n\n (Message sent by InvoiceXpress Android)\n"</string>
+    
+    <string name="email_successfull_message">The email sent successfully.</string>
+    
+    <!-- DASHBOARD -->
+    <string name="dashboard_invoicing">INVOICING</string>
+    <string name="dashboard_treasury">TREASURY</string>
+    <string name="dashboard_quarterly">QUARTERLY</string>
+    <string name="dashboard_top5debtors">TOP 5 DEBTORS</string>
+    
+    <string name="dashboard_title">Values in</string>
+    
+    <string name="dashboard_legend_total">Total</string>
+    <string name="dashboard_legend_settled">Settled</string>
+    <string name="dashboard_legend_onTime">On Time</string>
+    <string name="dashboard_legend_overdue">Overdue</string>
+    
+    <string name="dashboard_quarterly_invoicing">Invoicing</string>
+    <string name="dashboard_quarterly_VAT">VAT</string>
+    <string name="dashboard_quarterly_YOY">YOY</string>
+
+    <string name="dashboard_quarterly_first">1</string>
+    <string name="dashboard_quarterly_second">2</string>
+    <string name="dashboard_quarterly_third">3</string>
+    <string name="dashboard_quarterly_forth">4</string>
+    
+    <string name="dashboard_quarterly_legend_tilte">Quarterly</string>
+    
+    <string name="dashboard_topdebtors_legend_tilte_1">EXCELENT!</string>
+    <string name="dashboard_topdebtors_legend_tilte_2">There are no debtors :)</string>
+
+    <!-- Error ActionBar navigation -->
+    <string name="error_actionbar_navigation">Impossible to process the requested operation. Please try again later.</string>       
+    
+    <!-- Error Contacts -->
+    <string name="error_contacts_unexpected">Impossible to get contacts list. Please try again later.</string>
+	<string name="error_contact_unexpected">Impossible to get contact detail. Please try again later.</string>    
+    
+    <!-- Error Dashboard -->
+    <string name="error_get_dashboard_unexpected">Impossible to get dashboard data. Please try again later.</string>
+    
+    <!-- Error Messages Authentication -->
+    <string name="error_bad_credentials">Invalid login.</string>
+    <string name="error_invalid_params">Número de dados de autenticação inválidos.</string>
+    <string name="error_there_arent_active_accounts">There are no active accounts.</string>
+    <string name="error_cant_login_unexpected">Impossible to log in. Please try again later.</string>
+    <string name="error_fields_mandatory">The fields are mandatory.</string>
+    <string name="error_invalid_username">Invalid username (example: invoice@express.com).</string>
+    <string name="error_account_blocked">Your account is blocked. Please renew your business plane.</string>
+    
+    <!-- Error Documents -->
+    <string name="error_documents_unexpected">Impossible to get documents. Please try again later.</string>
+    
+    <!-- Error Documents change status -->
+    <string name="error_change_status_unexpected">Impossible to update document state. Please try again later.</string>
+    <string name="error_change_status_date">Date can not be before last sent invoice of this sequence</string>
+    <string name="error_change_status_cancel_empty_message">Cancel message can\'t be blank.</string>
+    <string name="error_change_status_already_sent_to_at">Cannot cancel, document already sent to AT.</string>
+    
+    <!-- Error More Accounts -->
+    <string name="error_accounts_unexpected">Impossible to get accounts list. Please try again later.</string>
+    <string name="error_account_switch_unexpected">Impossible to switch account. Please try again later.</string>
+    
+    <!-- Error Send Email -->
+    <string name="error_send_email_unexpected">Impossible to send an email. Please try again later.</string>
+    
+    <!-- Error parser -->
+    <string name="error_parser_xml_unexpected">Impossible to process the requested operation. Plase try again later.</string>
+    
+</resources>

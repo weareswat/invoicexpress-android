@@ -186,7 +186,7 @@
     
     <!-- Error Messages Authentication -->
     <string name="error_bad_credentials">Invalid login.</string>
-    <string name="error_invalid_params">Número de dados de autenticação inválidos.</string>
+    <string name="error_invalid_params">Invalid authentication data.</string>
     <string name="error_there_arent_active_accounts">There are no active accounts.</string>
     <string name="error_cant_login_unexpected">Impossible to log in. Please try again later.</string>
     <string name="error_fields_mandatory">The fields are mandatory.</string>
@@ -195,6 +195,7 @@
     
     <!-- Error Documents -->
     <string name="error_documents_unexpected">Impossible to get documents. Please try again later.</string>
+	<string name="error_documents_roles">Your account doesn\'t have permissions to access documents.</string>
     
     <!-- Error Documents change status -->
     <string name="error_change_status_unexpected">Impossible to update document state. Please try again later.</string>

@@ -24,12 +24,12 @@ import org.w3c.dom.NodeList;
 import pt.rupeal.invoicexpress.MainActivity;
 import pt.rupeal.invoicexpress.R;
 import pt.rupeal.invoicexpress.activities.AuthenticationActivity;
+import pt.rupeal.invoicexpress.enums.RoleEnum;
 import pt.rupeal.invoicexpress.model.AccountDetailsModel;
 import pt.rupeal.invoicexpress.model.AccountModel;
 import pt.rupeal.invoicexpress.model.AccountsModel;
 import pt.rupeal.invoicexpress.utils.InvoiceXpressException;
 import pt.rupeal.invoicexpress.utils.InvoiceXpressError.InvoiceXpressErrorType;
-
 import android.accounts.Account;
 import android.app.Activity;
 import android.content.Context;
@@ -164,8 +164,8 @@ public class AuthenticationRestHandler extends AsyncTask<String, Void, AccountsM
 		try {
 		
 			NodeList accountsNodeList = documentDomElement.getElementsByTagName("account");
-			for (int index = 0; index < accountsNodeList.getLength(); index++) {
-				Node accountNode = accountsNodeList.item(index);
+			for (int i = 0; i < accountsNodeList.getLength(); i++) {
+				Node accountNode = accountsNodeList.item(i);
 				
 				AccountModel accountModel = new AccountModel();
 				accountModel.setId(parser.getValue((Element) accountNode, "id"));
@@ -173,6 +173,17 @@ public class AuthenticationRestHandler extends AsyncTask<String, Void, AccountsM
 				accountModel.setUrl(parser.getValue((Element) accountNode, "url"));
 				accountModel.setApiKey(parser.getValue((Element) accountNode, "api_key"));
 				accountModel.setState(parser.getValue((Element) accountNode, "state"));
+				
+				// roles
+				NodeList rolesNodeList = ((Element) accountNode).getElementsByTagName("role");
+				int rolesLength = rolesNodeList.getLength();
+				List<RoleEnum> roles = new ArrayList<RoleEnum>(rolesLength);
+				for (int j = 0; j < rolesNodeList.getLength(); j++) {
+					Node item = rolesNodeList.item(j);
+					roles.add(RoleEnum.getRoleEnum(parser.getElementValue(item)));
+				}
+				accountModel.setRoles(roles);
+				
 				accountModel.setBlocked(Boolean.parseBoolean(parser.getValue((Element) accountNode, "blocked")));
 				
 				accounts.add(accountModel);

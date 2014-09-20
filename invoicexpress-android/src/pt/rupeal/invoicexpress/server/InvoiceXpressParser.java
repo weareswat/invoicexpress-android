@@ -62,7 +62,7 @@ public class InvoiceXpressParser {
 	    return "";
 	}
 	 
-	private final String getElementValue(Node node) {
+	public final String getElementValue(Node node) {
          Node child = null;
          
          if( node != null){

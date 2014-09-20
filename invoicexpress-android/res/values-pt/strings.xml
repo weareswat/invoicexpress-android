@@ -195,6 +195,7 @@
     
     <!-- Error Documents -->
     <string name="error_documents_unexpected">Não é possível obter documentos. Tente mais tarde.</string>
+	<string name="error_documents_roles">A sua conta não tem permissões para aceder a documentos.</string>
     
     <!-- Error Documents change status -->
     <string name="error_change_status_unexpected">Não foi possível actualizar o estado do documento. Por favor tente mais tarde.</string>

@@ -4,6 +4,7 @@ import pt.rupeal.invoicexpress.MainActivity;
 import pt.rupeal.invoicexpress.R;
 import pt.rupeal.invoicexpress.enums.DocumentTypeEnum;
 import pt.rupeal.invoicexpress.enums.FragmentTagsEnum;
+import pt.rupeal.invoicexpress.enums.RoleEnum;
 import pt.rupeal.invoicexpress.fragments.DocumentsListFragment.DocumentFilterFragment;
 import pt.rupeal.invoicexpress.layouts.ImageButtonLayout;
 import pt.rupeal.invoicexpress.model.ContactModel;
@@ -22,6 +23,7 @@ import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 import android.widget.LinearLayout.LayoutParams;
 
 public class DocumentsFragment extends Fragment {
@@ -113,6 +115,12 @@ public class DocumentsFragment extends Fragment {
 			
 			// vibrate - time in milliseconds
 			((Vibrator) getActivity().getSystemService(Context.VIBRATOR_SERVICE)).vibrate(50);
+
+			// verify if the user can consult invoices according his roles
+			if(!RoleEnum.isAllowToConsultInvoices(InvoiceXpress.getInstance().getActiveAccount().getRoles())) {
+				Toast.makeText(getActivity(), R.string.error_documents_roles, Toast.LENGTH_LONG).show();
+				return;
+			}
 			
 			// check if there is documents in cache
 			// if true then add new fragment else get documents from server

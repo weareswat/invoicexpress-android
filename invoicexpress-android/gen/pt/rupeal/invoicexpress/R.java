@@ -572,11 +572,11 @@ public final class R {
         public static final int email_to=0x7f060060;
         public static final int empty=0x7f060000;
         public static final int error_account_blocked=0x7f060082;
-        public static final int error_account_switch_unexpected=0x7f060089;
+        public static final int error_account_switch_unexpected=0x7f06008a;
         /**  Error More Accounts 
  Error More Accounts 
          */
-        public static final int error_accounts_unexpected=0x7f060088;
+        public static final int error_accounts_unexpected=0x7f060089;
         /**  Error ActionBar navigation 
  Error ActionBar navigation 
          */
@@ -586,18 +586,19 @@ public final class R {
          */
         public static final int error_bad_credentials=0x7f06007c;
         public static final int error_cant_login_unexpected=0x7f06007f;
-        public static final int error_change_status_already_sent_to_at=0x7f060087;
-        public static final int error_change_status_cancel_empty_message=0x7f060086;
-        public static final int error_change_status_date=0x7f060085;
+        public static final int error_change_status_already_sent_to_at=0x7f060088;
+        public static final int error_change_status_cancel_empty_message=0x7f060087;
+        public static final int error_change_status_date=0x7f060086;
         /**  Error Documents change status 
  Error Documents change status 
          */
-        public static final int error_change_status_unexpected=0x7f060084;
+        public static final int error_change_status_unexpected=0x7f060085;
         public static final int error_contact_unexpected=0x7f06007a;
         /**  Error Contacts 
  Error Contacts 
          */
         public static final int error_contacts_unexpected=0x7f060079;
+        public static final int error_documents_roles=0x7f060084;
         /**  Error Documents 
  Error Documents 
          */
@@ -612,11 +613,11 @@ public final class R {
         /**  Error parser 
  Error parser 
          */
-        public static final int error_parser_xml_unexpected=0x7f06008b;
+        public static final int error_parser_xml_unexpected=0x7f06008c;
         /**  Error Send Email 
  Error Send Email 
          */
-        public static final int error_send_email_unexpected=0x7f06008a;
+        public static final int error_send_email_unexpected=0x7f06008b;
         public static final int error_there_arent_active_accounts=0x7f06007e;
         public static final int image_description=0x7f060044;
         public static final int item_details_description=0x7f06003d;

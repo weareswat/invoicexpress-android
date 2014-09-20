@@ -1,5 +1,9 @@
 package pt.rupeal.invoicexpress.model;
 
+import java.util.List;
+
+import pt.rupeal.invoicexpress.enums.RoleEnum;
+
 public class AccountModel {
 
 	public static final String ID = "id";
@@ -9,6 +13,7 @@ public class AccountModel {
 	private String url;
 	private String apiKey;
 	private String state;
+	private List<RoleEnum> roles;
 	private boolean blocked;
 	
 	public String getId() {
@@ -50,6 +55,14 @@ public class AccountModel {
 	public void setState(String state) {
 		this.state = state;
 	}
+	
+	public List<RoleEnum> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<RoleEnum> roles) {
+		this.roles = roles;
+	}	
 	
 	public boolean isBlocked() {
 		return blocked;
